@@ -1,0 +1,14 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Add a Course</h2>
+
+  {{ include("LFPTimbalBundle:Course:form.html.twig") }}
+
+  <p>
+    Attention : cette annonce sera ajoutée directement
+    sur la page d'accueil après validation du formulaire.
+  </p>
+
+{% endblock %}

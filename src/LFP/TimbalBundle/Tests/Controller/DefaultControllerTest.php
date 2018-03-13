@@ -1,6 +1,6 @@
 <?php
 
-namespace FP\TimbalBundle\Tests\Controller;
+namespace LFP\TimbalBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

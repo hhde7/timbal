@@ -1,3 +1,0 @@
-fp_timbal_homepage:
-    path:     /
-    defaults: { _controller: FPTimbalBundle:Default:index }

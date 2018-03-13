@@ -1,0 +1,47 @@
+body {
+  width: 100%;
+}
+
+#instructions {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  transition: all ease 1s;
+}
+
+h1 {
+  color: #327f9e;
+  text-shadow: 2px 2px 3px #ccc;
+  text-align: center;
+  font-size: 5em;
+  padding: 0;
+  margin: 0;
+}
+
+dd {
+  color: grey;
+  font-size: 2em;
+  transform: translateX(120px);
+}
+
+#dots {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  float: left;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: #327f9e;
+  text-shadow: 2px 2px 3px #ccc;
+  font-size: 100px;
+}
+
+footer {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+}
