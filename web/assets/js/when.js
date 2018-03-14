@@ -37,9 +37,9 @@ for (var i = 0; i < buttonDays.length; i++) {
       default:
         day = "What ?";
     }
-    chosenDay.textContent = day;
-    chosenHour.textContent = "";
-    chosenMinute.textContent = "";
+    chosenDay.value = day;
+    chosenHour.value = "";
+    chosenMinute.value = "";
     minute = 0;
 
     var hour = 12;
@@ -67,9 +67,9 @@ for (var i = 0; i < hours.length; i++) {
   var minute = 0;
   hours[i].addEventListener("click", function(e) {
     if (minute === 0) {
-      chosenHour.textContent = e.target.textContent;
+      chosenHour.value = e.target.textContent;
     } else {
-      chosenMinute.textContent = e.target.textContent;
+      chosenMinute.value = e.target.textContent;
     }
     for (var i = 0; i < hourAm.length; i++) {
       hours[i].style.display = 'none';
@@ -88,8 +88,7 @@ for (var i = 0; i < hours.length; i++) {
 
 for (var i = 0; i < minutes.length; i++) {
   minutes[i].addEventListener("click", function(e) {
-    console.log(chosenMinute.textContent);
-    if (chosenMinute.textContent > 0 || chosenMinute.textContent === '00') {
+    if (chosenMinute.value > 0 || chosenMinute.value === '00') {
       for (var i = 0; i < minutes.length; i++) {
         minutes[i].style.display = "none";
       }
