@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../.././../web/assets/css/when.css">
-      <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
     <title>Timbal</title>
   </head>
   <body>
@@ -13,19 +13,8 @@
     <p>
       {{ caption }}
     </p>
-    <!--
-    <form class="" action="index.html" method="post">
-      <select class="day" name="day">
-        <option value="monday">Monday</option>
-        <option value="tuesday">Tuesday</option>
-        <option value="">Wednesday</option>
-        <option value="thursday">Thursday</option>
-        <option value="friday">Friday</option>
-        <option value="saturday">Saturday</option>
-        <option value="sunday">Sunday</option>
-      </select>
-    </form>
-  -->
+    <!-- <form class="" action="index.html" method="post"> <select class="day" name="day"> <option value="monday">Monday</option> <option value="tuesday">Tuesday</option> <option value="">Wednesday</option> <option value="thursday">Thursday</option>
+    <option value="friday">Friday</option> <option value="saturday">Saturday</option> <option value="sunday">Sunday</option> </select> </form> -->
 
     <div id="days">
       <button type="button" name="button" class="day" id="monday">M</button>
@@ -35,68 +24,129 @@
       <button type="button" name="button" class="day" id="friday">F</button>
       <button type="button" name="button" class="day" id="saturday">S</button>
       <button type="button" name="button" class="day" id="sunday">Sn</button>
-    <div>
+      <div>
 
-      <div id="choice">
-        <p id="chosen-day">_</p>
-        <div id="chosen-time">
-            <p id="chosen-hour">_</p>
+
+        <div class="clock">
+          <button type="button" name="button" class="hour-am hours" id="hour-00">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-01">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-02">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-03">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-04">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-05">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-06">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-07">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-08">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-09">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-10">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+          <button type="button" name="button" class="hour-am hours" id="hour-11">
+            <div class="h-cross"></div>
+            <div class="v-cross"></div>
+          </button>
+
+
+          <div id="circle1">
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-0">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-5">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-10">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-15">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-20">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-25">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-30">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-35">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-40">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-45">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-50">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+            <button type="button" name="button" class="hour-pm hours minutes" id="minute-55">
+              <div class="h-cross"></div>
+              <div class="v-cross"></div>
+            </button>
+
+
+            <div class="angle" id="angle-00"></div>
+            <div class="angle" id="angle-05"></div>
+            <div class="angle" id="angle-10"></div>
+            <div class="angle" id="angle-15"></div>
+            <div class="angle" id="angle-20"></div>
+            <div class="angle" id="angle-25"></div>
+
+          </div>
+          <div id="circle2">
+            <div id="choice">
+              <p id="chosen-day"></p>
+              <div id="chosen-time">
+                <p><span id="chosen-hour"></span> : <span id="chosen-minute"></span></p>
+              </div>
+              <p id="chosen-duration"></p>
+            </div>
+          </div>
         </div>
-        <p id="chosen-duration">_</p>
-      </div>
-
-    <div class="clock">
-      <button type="button" name="button" class="hour-pm hours" id="time-12">12</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-13">13</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-14">14</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-15">15</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-16">16</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-17">17</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-18">18</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-19">19</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-20">20</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-21">21</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-22">22</button>
-      <button type="button" name="button" class="hour-pm hours" id="time-23">23</button>
-
-      <button type="button" name="button" class="hour-am hours" id="time-00">00</button>
-      <button type="button" name="button" class="hour-am hours" id="time-01">01</button>
-      <button type="button" name="button" class="hour-am hours" id="time-02">02</button>
-      <button type="button" name="button" class="hour-am hours" id="time-03">03</button>
-      <button type="button" name="button" class="hour-am hours" id="time-04">04</button>
-      <button type="button" name="button" class="hour-am hours" id="time-05">05</button>
-      <button type="button" name="button" class="hour-am hours" id="time-06">06</button>
-      <button type="button" name="button" class="hour-am hours" id="time-07">07</button>
-      <button type="button" name="button" class="hour-am hours" id="time-08">08</button>
-      <button type="button" name="button" class="hour-am hours" id="time-09">09</button>
-      <button type="button" name="button" class="hour-am hours" id="time-10">10</button>
-      <button type="button" name="button" class="hour-am hours" id="time-11">11</button>
-      <div id="circle1">
-        <div class="triangle1"></div>
-        <div class="triangle2"></div>
-        <div class="triangle3"></div>
-        <div class="triangle4"></div>
-        <div class="triangle5"></div>
-        <div class="triangle6"></div>
-      </div>
-      <div id="circle2">
-        <div id="line1"></div>
-        <div id="line2"></div>
-        <div id="line3"></div>
-        <div id="line4"></div>
-        <div id="line5"></div>
-        <div id="line6"></div>
-        <div id="line7"></div>
-        <div id="line8"></div>
-        <div id="line9"></div>
-        <div id="line10"></div>
-        <div id="line11"></div>
-        <div id="line12"></div>
-
-      </div>
-    </div>
-    <script type="text/javascript" src="../.././../web/assets/js/when.js">
-
-    </script>
-  </body>
-</html>
+        <script type="text/javascript" src="../.././../web/assets/js/when.js"></script>
+      </body>
+    </html>
