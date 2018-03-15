@@ -17,15 +17,14 @@
     <option value="friday">Friday</option> <option value="saturday">Saturday</option> <option value="sunday">Sunday</option> </select> </form> -->
 
     <div id="days">
-      <button type="button" name="button" class="day" id="monday">M</button>
-      <button type="button" name="button" class="day" id="tuesday">T</button>
-      <button type="button" name="button" class="day" id="wednesday">W</button>
-      <button type="button" name="button" class="day" id="thursday">Th</button>
-      <button type="button" name="button" class="day" id="friday">F</button>
-      <button type="button" name="button" class="day" id="saturday">S</button>
-      <button type="button" name="button" class="day" id="sunday">Sn</button>
+      <button type="button" name="button" class="day" title="Monday" id="monday">M</button>
+      <button type="button" name="button" class="day" title="Tuesday" id="tuesday">T</button>
+      <button type="button" name="button" class="day" title="Wednesday" id="wednesday">W</button>
+      <button type="button" name="button" class="day" title="Thursday" id="thursday">Th</button>
+      <button type="button" name="button" class="day" title="Friday" id="friday">F</button>
+      <button type="button" name="button" class="day" title="Saturday" id="saturday">S</button>
+      <button type="button" name="button" class="day" title="Sunday" id="sunday">Sn</button>
       <div>
-
 
         <div class="clock">
           <button type="button" name="button" class="hour-am hours" id="hour-00">
@@ -77,7 +76,6 @@
             <div class="v-cross"></div>
           </button>
 
-
           <div id="circle1">
             <button type="button" name="button" class="hour-pm hours minutes" id="minute-0">
               <div class="h-cross"></div>
@@ -128,7 +126,6 @@
               <div class="v-cross"></div>
             </button>
 
-
             <div class="angle" id="angle-00"></div>
             <div class="angle" id="angle-05"></div>
             <div class="angle" id="angle-10"></div>
@@ -137,16 +134,40 @@
             <div class="angle" id="angle-25"></div>
 
           </div>
+
           <div id="circle2">
-            <div id="choice">
-              <p id="chosen-day"></p>
-              <div id="chosen-time">
-                <p><span id="chosen-hour"></span> : <span id="chosen-minute"></span></p>
+
+            <form class="" action="index.html" method="post">
+              <div id="choice">
+                <input type="text" id="chosen-day" name="chosen-day" value="Day ?" readonly="readonly">
+                <div id="chosen-time">
+                  <p><input type="text" id="chosen-hour" name="chosen-hour" value="" readonly="readonly">
+                    <span id="separator"></span><input type="text" id="chosen-minute" name="chosen-minute" value="" readonly="readonly"></p>
+                </div>
+
               </div>
-              <p id="chosen-duration"></p>
             </div>
-          </div>
+            <div id="chosen-duration">
+              <p>Duration</p>
+              <p><input type="text" id="duration-hour" name="" value="" readonly="readonly"><span id="duration-separator">'</span><input type="text" id="duration-minute" name="" value="" readonly="readonly"></p>
+
+              <a class="duration-time" id="duration-0">2</a>
+              <a class="duration-time" id="duration-1">2</a>
+              <a class="duration-time" id="duration-2">2</a>
+              <a class="duration-time" id="duration-3"></a>
+              <a class="duration-time" id="duration-4"></a>
+              <a class="duration-time" id="duration-5"></a>
+              <a class="duration-time" id="duration-6"></a>
+              <a class="duration-time" id="duration-7"></a>
+              <a class="duration-time" id="duration-8"></a>
+              <a class="duration-time" id="duration-9"></a>
+              <a class="duration-time" id="duration-10"></a>
+              <a class="duration-time" id="duration-11"></a>
+            </div>
+
+          </form>
         </div>
+
         <script type="text/javascript" src="../.././../web/assets/js/when.js"></script>
       </body>
     </html>
