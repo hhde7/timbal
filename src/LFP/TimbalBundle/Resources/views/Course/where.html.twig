@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
+{% extends "LFPTimbalBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - {{ text }}
+{% endblock %}
+{% block lfptimbal_body %}
+
+  {% block stylesheet %}
+    {{ parent() }}
+    <!-- Put "when & what" shared style in a master css -->
     <link rel="stylesheet" href="../.././../web/assets/css/when.css">
-    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-    <title>Timbal</title>
-  </head>
-  <body>
-    <h1>{{ text }}</h1>
-    <p>
-      {{ caption }}
-    </p>
-    
-    </body>
-</html>
+    <link rel="stylesheet" href="../.././../web/assets/css/what.css">
+  {% endblock %}
+
+  <h1>{{ text }}</h1>
+  <p>
+    {{ caption }}
+  </p>
+
+  <form class="where" action="crossroads" method="post">
+    <input type="text" name="" placeholder="Building" value="">
+    <input type="text" name="" placeholder="Room" value="" required="required">
+    <input type="submit" value="Add" id="next">
+
+  </form>
+
+  {% block javascripts %}{{ parent() }}
+  {% endblock %}
+
+{% endblock %}

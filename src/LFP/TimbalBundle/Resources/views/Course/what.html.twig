@@ -1,23 +1,48 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
+{% extends "LFPTimbalBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}
+  -
+  {{ text }}
+
+{% endblock %}
+
+{% block lfptimbal_body %}
+
+  {% block stylesheet %}
+    {{ parent() }}
+    <!--           Put "when & what" shared style in a master css  -->
     <link rel="stylesheet" href="../.././../web/assets/css/when.css">
-    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-    <title>Timbal</title>
-  </head>
-  <body>
-    <h1>{{ text }}</h1>
-    <p>
-      {{ caption }}
-    </p>
-        <!--
-        <form class="" action="index.html" method="post">
-          <input type="text" name="teacher" value="Teacher's name" />
-          <select class="course" name="Courses list">
-            <option value="course"></option>
-          </select>
-        </form>
-      -->
-    </body>
-</html>
+    <link rel="stylesheet" href="../.././../web/assets/css/what.css">
+  {% endblock %}
+
+  <h1>{{ text }}</h1>
+  <p>
+    {{ caption }}
+  </p>
+
+  <form class="what" action="where" method="post">
+    <input type="text" name="teacher" placeholder="Teacher's name" value=""/>
+    <br/>
+    <br/>
+    <select class="course" name="Courses list">
+      <!--      FROM DB : use twig loop      -->
+      <option value="course">Geography</option>
+      <option value="course">History</option>
+      <option value="course">Sport</option>
+      <option value="course">Maths</option>
+      <option value="course">French</option>
+      <option value="course">English</option>
+      <option value="course">Sociology</option>
+      <option value="course">Psychology</option>
+      <option value="course">Litterature</option>
+      <option value="course">Biology</option>
+      <option value="course">Physics</option>
+      <option value="course">Chemistry</option>
+      <option value="course">BabyFoot</option>
+      <input type="submit" value="next" id="next">
+    </select>
+  </form>
+
+  {% block javascripts %}{{ parent() }}{% endblock %}
+
+{% endblock %}

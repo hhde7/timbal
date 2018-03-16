@@ -2,56 +2,48 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block title %}Timbal{% endblock %}</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <title>
+      {% block title %}Timbal{% endblock %}
+    </title>
+  </head>
 
-  {% block stylesheets %}
-    {# On charge le CSS de bootstrap depuis le site directement #}
+  <body>
+    <div id="menu">
+      <div id="menu-call">&#8801;</div>
 
-  {% endblock %}
-  <link rel="stylesheet" href="../../../web/assets/css/instructions.css">
-</head>
+      <h3>Temporary Shortcuts</h3>
+      <ul>
+        <li>
+          <a href="{{ path('lfp_timbal_when') }}">When</a>
+        </li>
+        <li>
+          <a href="{{ path('lfp_timbal_what') }}">What</a>
+        </li>
+        <li>
+          <a href="{{ path('lfp_timbal_where') }}">Where</a>
+        </li>
+      </ul>
 
-<body>
-  <div class="container">
-    <div id="header" class="jumbotron">
-
+      <h4>Your Courses</h4>
+      {{ render(controller("LFPTimbalBundle:Course:menu", {'limit': 3})) }}
     </div>
-
-    <div class="row">
-      <div id="menu" class="col-md-3">
-        <button id="menu-call" type="button" name="button">&#8801;</button>
-      
-        <h3>Courses</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="{{ path('lfp_timbal_home') }}">Course n° x</a></li>
-          <li><a href="{{ path('lfp_timbal_add') }}">TimeTable</a></li>
-        </ul>
-
-        <h4>Dernières annonces</h4>
-        {{ render(controller("LFPTimbalBundle:Course:menu", {'limit': 3})) }}
-      </div>
-      <div id="content" class="col-md-9">
-        {% block body %}
-        {% endblock %}
-      </div>
+    <div id="content">
+      {% block body %}{% endblock %}
     </div>
-
-
 
     <footer>
-      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
+      <p>La Fondation Phoenix -
+        {{ 'now'|date('Y') }}</p>
     </footer>
-  </div>
 
-  {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    {% block javascripts %}
+      <script type="text/javascript" src="../../../web/assets/js/menu.js"></script>
   {% endblock %}
 
-</body>
+  </body>
 </html>

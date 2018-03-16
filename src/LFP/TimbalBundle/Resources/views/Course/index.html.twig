@@ -1,40 +1,26 @@
 {# src/LFP/TimbalBundle/Resources/views/Collect/index.html.twig #}
 {# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
 
-{% extends "::layout.html.twig" %}
+{% extends "LFPTimbalBundle::layout.html.twig" %}
 
 {% block title %}{{ parent() }}
-  - Index{% endblock %}
+  - Welcome{% endblock %}
 
-{% block body %}
-  Notre plateforme est un peu vide pour le moment, mais cela viendra !
+{% block stylesheet %}
+  {{ parent() }}
+{% endblock %}
 
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" href="css/style.css">
-      <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-      <link rel="stylesheet" href="../../../../web/assets/css/instructions.css">
+{% block lfptimbal_body %}
 
-      <title>Timbal</title>
-    </head>
-    <body>
+  <dl id="instructions">
+    <dt>
+      <h1 id="instructions-h1"></h1>
+    </dt>
+    <dd id="instructions-dd"></dd>
+  </dl>
 
-
-
-      <p id="dots">......</p>
-      <dl id="instructions">
-        <dt>
-          <h1 id="instructions-h1"></h1>
-        </dt>
-        <dd id="instructions-dd"></dd>
-      </dl>
-      <footer>
-        <p>{{ webmaster }}</p>
-      </footer>
-      <script type="text/javascript" src="../.././../web/assets/js/instructions.js"></script>
-    </body>
-  </html>
-
+  <script type="text/javascript" src="../.././../web/assets/js/instructions.js"></script>
+  {% block javascripts %}
+    {{ parent() }}
+  {% endblock %}
 {% endblock %}
