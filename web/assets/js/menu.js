@@ -1,17 +1,14 @@
-var menuCall = document.getElementById('menu-call');
 var menu = document.getElementById('menu');
 var direction = "right";
 
-menuCall.addEventListener("click", menuTranslateX);
+menu.addEventListener("click", menuTranslateX);
 
 function menuTranslateX() {
   if (direction === 'right') {
-    console.log(direction);
-    menu.style.transform = "translateX(0px)";
+    menu.style.transform = "translate(0px, -5px)";
     direction = 'left';
   } else {
-    console.log(direction);
-    menu.style.transform = "translateX(-170px)";
+    menu.style.transform = "translate(-199px , -5px)";
     direction = 'right';
   }
 }
