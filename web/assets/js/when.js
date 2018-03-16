@@ -1,3 +1,5 @@
+var day = document.getElementsByClassName('day');
+
 var chosenDay = document.getElementById('chosen-day');
 var buttonDays = document.getElementsByClassName('day');
 var chosenDay = document.getElementById('chosen-day');
@@ -18,6 +20,9 @@ var durationHour = document.getElementById('duration-hour');
 var durationMinute = document.getElementById('duration-minute');
 
 var durationTime = document.getElementsByClassName('duration-time');
+
+var nextButton = document.getElementById('next');
+var resetButton = document.getElementById('reset');
 
 function displayDay() {
   for (var i = 0; i < buttonDays.length; i++) {
@@ -49,6 +54,7 @@ function displayDay() {
         default:
           day = "What ?";
       }
+
       chosenDuration.style.display = 'none';
       chosenDay.style.display = 'block';
       chosenDay.style.transform = 'translateY(42px)';
@@ -56,6 +62,8 @@ function displayDay() {
       chosenTime.style.display = 'block';
       chosenHour.value = "";
       chosenMinute.value = "";
+      durationHour.value = "";
+      durationMinute.value = "";
       minute = 0;
 
       var hour = 12;
@@ -131,30 +139,55 @@ for (var i = 0; i < minutes.length; i++) {
   });
 }
 
-hour = 0;
+hour = 1;
 
 for (var i = 0; i < durationTime.length; i++) {
-  durationTime[i].textContent = hour;
-  durationTime[i].addEventListener("click", function(e) {
-    durationHour.value = e.target.textContent;
-    a();
-  })
-  hour++;
-}
-
-minute = 0;
-
-function a() {
-  for (var i = 0; i < durationTime.length; i++) {
-    durationTime[i].textContent = minute;
+  if (durationHour.value === "") {
+    if (hour < 10) {
+      durationTime[i].textContent = '0' + hour;
+    } else {
+      durationTime[i].textContent = hour;
+    }
     durationTime[i].addEventListener("click", function(e) {
-      durationMinute.value = e.target.textContent;
+      durationHour.value = e.target.textContent;
+      var fixedHour = e.target.textContent;
+
+      if (durationHour.value > 0 || durationHour.value === '00') {
+        minute = 0;
+        durationMinute.textContent = "";
+        for (var i = 0; i < durationTime.length; i++) {
+          if (minute < 10) {
+            durationTime[i].textContent = '0' + minute;
+          } else {
+            durationTime[i].textContent = minute;
+          }
+          durationTime[i].addEventListener("click", function(e) {
+            durationHour.value = fixedHour;
+            durationMinute.value = e.target.textContent;
+
+            if (durationMinute.value > 0 || durationMinute.value === '00') {
+              for (var i = 0; i < durationTime.length; i++) {
+                durationTime[i].style.display = "none";
+                nextButton.style.display = "block" ;
+
+
+              }
+            }
+          })
+          minute += 5;
+        }
+      }
     })
-    minute += 5;
+    hour++;
   }
 }
 
-console.log(durationHour);
+
+resetButton.addEventListener("click", function() {
+  location.reload();
+})
+
+
 
 
 
