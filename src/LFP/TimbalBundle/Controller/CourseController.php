@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CourseController extends Controller
 {
-    public function indexAction($page)
+    public function indexAction()
     {
 
       // Remplace $page by $progress -> 0 = animation
@@ -117,16 +117,16 @@ class CourseController extends Controller
     {
         // On fixe en dur une liste ici, bien entendu par la suite
         // on la récupérera depuis la BDD !
-        $listAdverts = array(
-            array('id' => 2, 'title' => 'Recherche développeur Symfony'),
-            array('id' => 5, 'title' => 'Mission de webmaster'),
-            array('id' => 9, 'title' => 'Offre de stage webdesigner')
+        $listCourses = array(
+            array('id' => 2, 'title' => 'Geography'),
+            array('id' => 5, 'title' => 'History'),
+            array('id' => 9, 'title' => 'Arithmetics')
         );
 
         return $this->render('LFPTimbalBundle:Course:menu.html.twig', array(
             // Tout l'intérêt est ici : le contrôleur passe
             // les variables nécessaires au template !
-            'listAdverts' => $listAdverts
+            'listCourses' => $listCourses
         ));
     }
 

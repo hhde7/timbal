@@ -1,10 +1,7 @@
 lfp_timbal_home:
-    path:    /{page}
+    path:    /
     defaults:
         _controller: LFPTimbalBundle:Course:index
-        page:   1
-    requirements:
-        page: \d*
 
 lfp_timbal_what:
     path:   /what
