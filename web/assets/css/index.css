@@ -1,0 +1,86 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#instructions {
+  letter-spacing: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  transition: all ease 1s;
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  color: #327f9e;
+  text-shadow: 2px 2px 3px #ccc;
+  text-align: center;
+  font-size: 5em;
+  padding: 0;
+  margin: 0;
+}
+
+dd {
+  color: grey;
+  font-size: 2em;
+  transform: translateX(120px);
+}
+
+#menu {
+  position: absolute;
+  z-index: 2;
+  text-align: left;
+  padding: 5px;
+  width: 185px;
+  transform: translate(-199px, -5px);
+  transition: all ease 0.3s;
+  height: 100%;
+  background-color: rgb(250, 250, 249);
+  box-shadow: 2px 2px 3px #ccc;
+}
+
+#menu-call {
+  background-color: rgb(250, 250, 249);
+  box-shadow: 2px 2px 3px #ccc;
+  border-radius: 0 0 5px 0;
+  position: absolute;
+  padding: 5px;
+  color: #327f9e;
+  font-size: 2em;
+  right: 0;
+  margin-right: -29px;
+  margin-left: 0;
+  cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  background-color: rgb(250, 250, 249);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0px 0px 3px #bbb;
+  height: 25px;
+}
+
+footer p {
+  line-height: 0px;
+  text-align: center;
+  color: grey;
+  transform: translateY(-2px);
+}

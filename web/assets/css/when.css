@@ -19,6 +19,7 @@ p {
   padding: 0;
 }
 
+
 input {
   color: grey;
   font-size: 1.4em;
@@ -70,9 +71,15 @@ select {
   transform: translateY(-14px);
 }
 
+#duration-minute {
+  position: relative;
+  left: 5px;
+}
+
 #duration-separator {
   position: relative;
-  top: -18px;
+  left: 2px;
+  top: -15px;
 }
 
 .clock {
@@ -440,4 +447,24 @@ select {
 #duration-11 {
   left: -54px;
   top: 7px;
+}
+
+#reset {
+  position: relative;
+  top: 250px;
+}
+
+#next {
+  display: none;
+  position: relative;
+  top: 40px;
+  left: 18px;
+}
+
+#next:hover {
+  cursor: pointer;
+}
+
+footer p {
+  font-size: 1em;
 }
