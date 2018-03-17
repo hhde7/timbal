@@ -1,3 +1,5 @@
+# src/LFP/TimbalBundle/Resources/config/routing.yml
+
 lfp_timbal_home:
     path:    /
     defaults:
@@ -37,12 +39,10 @@ lfp_timbal_delete:
     requirements:
         id: \d+
 
-lfp_timbal_see-ya:
-    path:    /see-ya
+lfp_timbal_see-course:
+    path:    /see-sourse/{id}
     defaults:
         _controller: LFPTimbalBundle:Course:close
-
-
 
 lfp_timbal_view:
     path:    /course/{id}

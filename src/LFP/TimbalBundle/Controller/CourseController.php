@@ -1,6 +1,6 @@
 <?php
 
-// src//LFP/TimbalBunble/Controller/CourseController.phpinfo
+// src/LFP/TimbalBunble/Controller/CourseController.php
 
 namespace LFP\TimbalBundle\Controller;
 
@@ -10,21 +10,26 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class CourseController extends Controller
 {
+     /**
+      * Matches / exactly
+      *
+      * @Route("/ ", name="lfp_timbal_home")
+      */
     public function indexAction()
     {
-
       // Remplace $page by $progress -> 0 = animation
-        //                             -> 1 = first crossroads (what do you want to do ?)
-        /*
+      //                             -> 1 = first crossroads (what do you want to do ?)
+      /*
           if ($page < 1) {
               // On déclenche une exception NotFoundHttpException, cela va afficher
               // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
               throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
           }
-*/
+      */
         $content = $this
           ->get('templating')
           ->render('LFPTimbalBundle:Course:index.html.twig', array('text' => 'Timbal',
@@ -33,7 +38,11 @@ class CourseController extends Controller
 
         return new Response($content);
     }
-
+    /**
+      * Matches /what exactly
+      *
+      * @Route("/what", name="lfp_timbal_what")
+      */
     public function whatAction()
     {
         $content = $this
@@ -44,7 +53,11 @@ class CourseController extends Controller
 
         return new Response($content);
     }
-
+    /**
+      * Matches /when exactly
+      *
+      * @Route("/when", name="lfp_timbal_when")
+      */
     public function whenAction()
     {
         $content = $this
@@ -55,7 +68,11 @@ class CourseController extends Controller
 
         return new Response($content);
     }
-
+    /**
+      * Matches /where exactly
+      *
+      * @Route("/where", name="lfp_timbal_where")
+      */
     public function whereAction()
     {
         $content = $this
@@ -66,7 +83,11 @@ class CourseController extends Controller
 
         return new Response($content);
     }
-
+    /**
+      * Matches /course/* exactly
+      *
+      * @Route("/course/{id}", name="lfp_timbal_wiew")
+      */
     public function viewAction($id)
     {
         return $this->render('LFPTimbalBundle:Course:view.html.twig', array('id' => $id));
@@ -113,6 +134,7 @@ class CourseController extends Controller
         return $this->render('LFPTimbalBundle:Collect:delete.html.twig');
     }
 
+
     public function menuAction()
     {
         // On fixe en dur une liste ici, bien entendu par la suite
@@ -137,12 +159,16 @@ class CourseController extends Controller
               slug '" .$slug."', créée en ".$year." et au format ".$_format. "."
         );
     }
-
-    public function closeAction()
+    /**
+     * Matches /see-course/* exactly
+     *
+     * @Route("/see-course/{id} ", name="lfp_timbal_see-course")
+     */
+    public function seeAction($id)
     {
         $content = $this
           ->get('templating')
-          ->render('LFPTimbalBundle:Course:close.html.twig', array('text' => 'See Ya\' !',
+          ->render('LFPTimbalBundle:Course:see.html.twig', array('text' => 'Voilà your course :' . $id,
                                                                    'caption' => 'Timbal Team'))
       ;
 

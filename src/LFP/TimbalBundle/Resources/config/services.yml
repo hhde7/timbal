@@ -1,3 +1,5 @@
+# src/LFP/TimbalBundle/Resources/config/services.yml
+
 services:
 #    LFP_timbal.example:
 #        class: LFP\TimbalBundle\Example

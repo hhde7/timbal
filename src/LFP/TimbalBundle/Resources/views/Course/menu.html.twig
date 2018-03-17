@@ -1,4 +1,4 @@
-{# src/OC/PlatformBundle/Resources/views/Advert/menu.html.twig #}
+{# src/LFP/TimbalBundle/Resources/views/Course/menu.html.twig #}
 
 {# Ce template n'hérite de personne,
    tout comme le template inclus avec {{ include() }}. #}
@@ -6,7 +6,7 @@
 <ul class="nav nav-pills nav-stacked">
   {% for course in listCourses %}
     <li>
-      <a href="{{ path('lfp_timbal_view', {'id': course.id}) }}">
+      <a href="{{ path('lfp_timbal_see-course', {'id': course.title}) }}">
         {{ course.title }}
       </a>
     </li>

@@ -1,11 +1,21 @@
-{# src/OC/PlatformBundle/Resources/view/Advert/view.html.twig #}
+{# src/LFP/TimbalBundle/Resources/views/Course/wiew.html.twig #}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Affichage de l'annonce {{ id }}</title>
-  </head>
-  <body>
+{% extends "LFPTimbalBundle::layout.html.twig" %}
+
+
+{% block title %}Affichage de l'annonce {{ id }}
+
+{% endblock %}
+
+{% block lfptimbal_body %}
+
+{% block stylesheet %}
+  {{ parent() }}
+  <!--           Put "when & what" shared style in a master css  -->
+  <link rel="stylesheet" href="../.././../web/assets/css/when.css">
+  <link rel="stylesheet" href="../.././../web/assets/css/what.css">
+{% endblock %}
+
     <h1>Affichage de l'annonce n°{{ id }} !</h1>
 
     <div>
@@ -19,5 +29,5 @@
       Ici nous pourrons lire l'annonce ayant comme id : {{ id }}<br />
       Mais pour l'instant, nous ne savons pas encore le faire, cela viendra !
     </p>
-  </body>
-</html>
+
+{% endblock %}

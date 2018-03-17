@@ -1,3 +1,4 @@
 LFP_timbal:
-    resource: "@LFPTimbalBundle/Resources/config/routing.yml"
+    resource: "@LFPTimbalBundle/Controller/"
     prefix:   /timbal
+    type:   annotation
