@@ -1,0 +1,43 @@
+{# src/LFP/TimbalBundle/Resources/views/Course/id.html.twig #}
+
+{% extends "LFPTimbalBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}
+  - First Step{% endblock %}
+
+{% block stylesheet %}
+  {{ parent() }}
+  <link rel="stylesheet" href="../.././../web/assets/css/id.css">
+{% endblock %}
+
+{% block lfptimbal_body %}
+  <div id="centered-content">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <h1>Create a user Id</h1>
+    <div>
+      {{ form_label(form.email) }}
+      {{ form_errors(form.email) }}
+      {{ form_widget(form.email) }}
+    </div>
+    <div>
+      {{ form_label(form.password) }}
+      {{ form_errors(form.password) }}
+      {{ form_widget(form.password) }}
+    </div>
+    <div>
+      {{ form_widget(form.save, {'attr': {'class': 'save'}}) }}
+    </div>
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+  </div>
+  {% block javascripts %}
+    {{ parent() }}
+  {% endblock %}
+{% endblock %}

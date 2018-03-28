@@ -39,13 +39,15 @@ dd {
   transform: translateX(120px);
 }
 
+
 #menu {
+  display: none;
   position: absolute;
   z-index: 2;
   text-align: left;
   padding: 5px;
-  width: 185px;
-  transform: translate(-199px, -5px);
+  width: 100%;
+  transform: translate(-100%, -25px);
   transition: all ease 0.3s;
   height: 100%;
   background-color: rgb(250, 250, 249);

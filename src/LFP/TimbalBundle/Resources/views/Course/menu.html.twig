@@ -3,12 +3,14 @@
 {# Ce template n'hérite de personne,
    tout comme le template inclus avec {{ include() }}. #}
 
+
+
 <ul class="nav nav-pills nav-stacked">
   {% for course in listCourses %}
-    <li>
-      <a href="{{ path('lfp_timbal_see-course', {'id': course.title}) }}">
-        {{ course.title }}
-      </a>
+    <li class="course-menu">
+      <span class="course-day">{{ course.day }}</span> | 
+        {{ course.course }}
     </li>
+
   {% endfor %}
 </ul>

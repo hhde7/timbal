@@ -7,15 +7,6 @@ function instructions() {
       description: 'Your TimeTable Maker'
     },
     slide2 = {
-      title: 'Let\'s Start'
-    },
-    slide3 = {
-      title: Array('One Course', '3 Questions')
-    },
-    slide4 = {
-      title: Array('When', 'What', 'Where')
-    },
-    slide5 = {
       title: 'Ready ?'
     }
   ]
@@ -67,8 +58,16 @@ function instructions() {
       // STOPS THE SLIDER ANIMATION AFTER THE LAST SLIDE IS DISPLAYED
       if (i > slidesContent.length - 1) {
         clearInterval(slideAnimation);
+        setInterval(fadeToAdd, 2000);
       }
-    }, 3000);
+    }, 2000);
+  }
+
+  function fadeToAdd() {
+    var instructions = document.getElementById('instructions');
+    instructions.style.opacity = "0";
+    window.location.href="id";
+
   }
 
   launchSlider();

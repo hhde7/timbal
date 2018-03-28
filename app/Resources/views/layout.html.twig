@@ -6,6 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
     <title>
       {% block title %}Timbal{% endblock %}
@@ -13,25 +14,21 @@
   </head>
 
   <body>
+
     <div id="menu">
       <div id="menu-call">&#8801;</div>
 
       <h3>Temporary Shortcuts</h3>
       <ul>
         <li>
-          <a href="{{ path('lfp_timbal_when') }}">When</a>
-        </li>
-        <li>
-          <a href="{{ path('lfp_timbal_what') }}">What</a>
-        </li>
-        <li>
-          <a href="{{ path('lfp_timbal_where') }}">Where</a>
+          <a href="{{ path('lfp_timbal_home') }}">Home</a>
         </li>
       </ul>
 
       <h4>Your Courses</h4>
-      {{ render(controller("LFPTimbalBundle:Course:menu", {'limit': 3})) }}
+      {{ render(controller("LFPTimbalBundle:Course:menu")) }}
     </div>
+
     <div id="content">
       {% block body %}{% endblock %}
     </div>

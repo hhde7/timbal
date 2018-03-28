@@ -1,6 +1,12 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 services:
+    lfp_timbal.antispam:
+        class: LFP\TimbalBundle\Antispam\LFPAntispam
+        arguments:
+            - "@mailer"
+            - "%locale%"
+            - 50
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

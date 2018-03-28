@@ -1,61 +1,12 @@
 # src/LFP/TimbalBundle/Resources/config/routing.yml
 
-lfp_timbal_home:
-    path:    /
-    defaults:
-        _controller: LFPTimbalBundle:Course:index
-
-lfp_timbal_what:
-    path:   /what
-    defaults:
-        _controller: LFPTimbalBundle:Course:what
-
-lfp_timbal_when:
-    path:   /when
-    defaults:
-        _controller: LFPTimbalBundle:Course:when
-
-lfp_timbal_where:
-    path:   /where
-    defaults:
-        _controller: LFPTimbalBundle:Course:where
-
-lfp_timbal_add:
-    path:    /add
-    defaults:
-        _controller: LFPTimbalBundle:Course:add
-
-lfp_timbal_edit:
-    path:    /edit/{id}
-    defaults:
-        _controller: LFPTimbalBundle:Course:edit
-    requirements:
-        id: \d+
-
-lfp_timbal_delete:
-    path:    /delete/{id}
-    defaults:
-        _controller: LFPTimbalBundle:Course:delete
-    requirements:
-        id: \d+
-
-lfp_timbal_see-course:
-    path:    /see-sourse/{id}
-    defaults:
-        _controller: LFPTimbalBundle:Course:close
-
-lfp_timbal_view:
-    path:    /course/{id}
-    defaults:
-        _controller: LFPTimbalBundle:Course:view
-
-lfp_timbal_view_slug:
-    path:    /{_locale}/{year}/{slug}.{_format}
-    defaults:
-        _controller: LFPTimbalBundle:Course:viewSlug
-        _format:    html
-        _locale:    en
-    requirements:
-        year:    \d{4}
-        _format:    html|xml
-        _locale:    en|fr
+# lfp_timbal_home:
+#     path:    /
+#     defaults:
+#         _controller: LFPTimbalBundle:Course:index
+#
+#
+# new:
+#     path:   /when
+#     defaults:
+#         _controller: LFPTimbalBundle:Course:when
