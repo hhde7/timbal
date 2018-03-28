@@ -1,16 +1,23 @@
 {# src/LFP/TimbalBundle/Resources/views/Course/add.html.twig #}
 
-{% extends "::layout.html.twig" %}
+{% extends "LFPTimbalBundle::layout.html.twig" %}
 
-{% block body %}
+{% block title %}{{ parent() }}
+  - Welcome{% endblock %}
 
-  <h2>Add a Course</h2>
-
-  {{ include("LFPTimbalBundle:Course:form.html.twig") }}
-
-  <p>
-    Attention : cette annonce sera ajoutée directement
-    sur la page d'accueil après validation du formulaire.
-  </p>
-
+{% block stylesheet %}
+  {{ parent() }}
+  <link rel="stylesheet" href="../.././../web/assets/css/add.css">
 {% endblock %}
+
+{% block lfptimbal_body %}
+  <div class="when">
+    {{ form(form) }}
+
+    </div>
+
+
+    {% block javascripts %}
+      {{ parent() }}
+    {% endblock %}
+  {% endblock %}

@@ -1,0 +1,149 @@
+{# src/LFP/TimbalBundle/Resources/views/Course/when.html.twig #}
+
+{% extends "LFPTimbalBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}
+  - New course
+
+{% endblock %}
+
+{% block lfptimbal_body %}
+
+  {% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../.././../web/assets/css/new.css">
+  {% endblock %}
+  <div id="wrapper">
+    <h1>Timbal</h1>
+
+    <p id="days-label" for="button">{{ action1 }}</p>
+
+    <div id="days">
+      <button type="button" name="button" class="day" title="Monday" id="monday">M</button>
+      <button type="button" name="button" class="day" title="Tuesday" id="tuesday">T</button>
+      <button type="button" name="button" class="day" title="Wednesday" id="wednesday">W</button>
+      <button type="button" name="button" class="day" title="Thursday" id="thursday">Th</button>
+      <button type="button" name="button" class="day" title="Friday" id="friday">F</button>
+      <button type="button" name="button" class="day" title="Saturday" id="saturday">S</button>
+      <button type="button" name="button" class="day" title="Sunday" id="sunday">Sn</button>
+    </div>
+
+    <div id="clock-module">
+      <div id="inner-circle"></div>
+      <div id="circle1">
+        <div id="outer-circle"></div>
+        <!-- grey lines -->
+        <div class="angle" id="angle-00"></div>
+        <div class="angle" id="angle-05"></div>
+        <div class="angle" id="angle-10"></div>
+        <div class="angle" id="angle-15"></div>
+        <div class="angle" id="angle-20"></div>
+        <div class="angle" id="angle-25"></div>
+      </div>
+
+      <div id="circle2">
+        <div id="choice">
+          <span id="time-separator"></span>
+        </div>
+      </div>
+
+      <div id="chosen-duration">
+        <div id="course-duration">
+          <p>Course duration</p>
+          <span id="duration-separator">H</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {{ form_errors(form) }}
+
+  <div id="when">
+
+    {{ form_errors(form.day) }}
+    {{ form_widget(form.day, { 'attr': {'readonly': 'readonly', 'required': 'required', 'value': 'Day ?'}}) }}
+
+    <div id="chosen-time">
+
+      {{ form_errors(form.chosenHour) }}
+      {{ form_widget(form.chosenHour, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
+
+      {{ form_errors(form.chosenMinute) }}
+      {{ form_widget(form.chosenMinute, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
+
+    </div>
+
+    {{ form_errors(form.durationHour) }}
+    {{ form_widget(form.durationHour, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
+
+    {{ form_errors(form.durationMinute) }}
+    {{ form_widget(form.durationMinute, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
+
+  </div>
+  <div id="under-clock">
+    <div id="what">
+
+        {{ form_label(form.teacher) }}
+        {{ form_errors(form.teacher) }}
+        {{ form_widget(form.teacher, {'attr': {'placeholder':'Optional'}}) }}
+
+
+        {{ form_label(form.course) }}
+        {{ form_errors(form.course) }}
+        {{ form_widget(form.course) }}
+
+    </div>
+    <div id="where">
+
+        {{ form_label(form.building) }}
+        {{ form_errors(form.building) }}
+        {{ form_widget(form.building, {'attr': {'placeholder':'Optional'}}) }}
+
+
+        {{ form_label(form.room) }}
+        {{ form_errors(form.room) }}
+        {{ form_widget(form.room, {'attr': {'placeholder':'Room'}}) }}
+
+    </div>
+    <div>
+      {{ form_widget(form.save, { 'label': 'Add this course' , 'attr': {'class': 'save', 'title': 'Fill time first', 'disabled': 'disabled'}}) }}
+    </div>
+  </div>
+  {{ form_rest(form) }}
+
+  {{ form_end(form) }}
+  <!-- ############## FORM FIELDS ############## -->
+
+  <!-- ################################################# -->
+  <!-- <form class="" action="what" method="post"> -->
+
+  <!-- <div id="under-clock"> -->
+  <!-- <div id="what"> <label for="teacher">{{ action2 }}</label> <input type="text" name="teacher" placeholder="Optional" value=""/> <label for="course">{{ action3 }}</label> <select class="course" name="course" required="required"
+  aria-required="true"> -->
+  <!-- FROM DB : use twig loop -->
+  <!-- <option value="">Choose One</option> <option value="Geography">Geography</option> <option value="History">History</option> <option value="Sport">Sport</option> <option value="Maths">Maths</option> <option value="French">French</option> <option
+  value="English">English</option> <option value="Sociology">Sociology</option> <option value="Psychology">Psychology</option> <option value="Litterature">Litterature</option> <option value="Biology">Biology</option> <option
+  value="Physics">Physics</option> <option value="Chemistry">Chemistry</option> <option value="BabyFoot">BabyFoot</option> <option value="Anthropology">Anthropology</option> <option value="Anthropology">Archaeology</option> <option value="Accounting &
+  Finance">Accounting & Finance</option> <option value="Criminology">Criminology</option> <option value="Film Making">Film Making</option> <option value="Education">Education</option> <option value="East & South Asian Studies">East & South Asian
+  Studies</option> <option value="Geology">Geology</option> <option value="History of Art, Architecture & Design">History of Art, Architecture & Design</option> <option value="Land & Property Management">Land & Property Management</option> <option
+  value="Law">Law</option> <option value="Librarianship & Information Management">Librarianship & Information Management</option> <option value="BabyFoot">BabyFoot</option> <option value="Marketing">Marketing</option> <option
+  value="Linguistics">Linguistics</option> <option value="English">English</option> <option value="French">French</option> <option value="General Engineering">General Engineering</option> <option value="Music">Music</option> <option value="Social
+  Work">Social Work</option> <option value="Robotics">Robotics</option> <option value="Youth Work">Youth Work</option> <option value="Politics">Politics</option> <option value="Medicine">Medicine</option> </select> -->
+  <!-- END OF WHAT -->
+  <!-- </div> <div id="where"> <label for="building">{{ action4 }}</label> <input type="text" name="building" placeholder="Optional" value=""> <label for="room">{{ action5 }}</label> <input type="text" name="room" placeholder="Room" value=""
+  required="required" id="room"> -->
+  <!-- END OF WHERE -->
+  <!-- </div> <input type="submit" value="Add this course" id="add"> -->
+
+  <!-- </div> -->
+  <!-- </form> -->
+
+  {% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="../.././../web/assets/js/new.js"></script>
+  {% endblock %}
+
+{% endblock %}

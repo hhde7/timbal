@@ -11,166 +11,150 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use LFP\TimbalBundle\Entity\Course;
+use LFP\TimbalBundle\Entity\User;
+use LFP\TimbalBundle\Form\CourseType;
+use LFP\TimbalBundle\Form\UserType;
 
 class CourseController extends Controller
 {
-     /**
-      * Matches / exactly
-      *
-      * @Route("/ ", name="lfp_timbal_home")
-      */
+    /**
+     * Matches / exactly
+     *
+     * @Route("/ ", name="lfp_timbal_home")
+     */
     public function indexAction()
     {
-      // Remplace $page by $progress -> 0 = animation
-      //                             -> 1 = first crossroads (what do you want to do ?)
-      /*
-          if ($page < 1) {
-              // On déclenche une exception NotFoundHttpException, cela va afficher
-              // une page d'erreur 404 (qu'on pourra personnaliser plus tard d'ailleurs)
-              throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
-          }
-      */
         $content = $this
           ->get('templating')
           ->render('LFPTimbalBundle:Course:index.html.twig', array('text' => 'Timbal',
-                                                                   'caption' => 'Your TimeTable Maker'))
+                                                                   'caption' => 'Your TimeTable Maker'
+                                                                   ))
       ;
 
         return new Response($content);
     }
     /**
-      * Matches /what exactly
-      *
-      * @Route("/what", name="lfp_timbal_what")
-      */
-    public function whatAction()
+     * Matches /id exactly
+     *
+     * @Route("/id ", name="lfp_timbal_id")
+     */
+    public function idAction(Request $request)
     {
+        $user = new User();
+
+        $form = $this->get('form.factory')->create(UserType::class, $user);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'User added !');
+
+            return $this->redirectToRoute('lfp_timbal_new');
+        }
+
+
+        // À ce stade, le formulaire n'est pas valide car :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+        return $this->render('LFPTimbalBundle:Course:id.html.twig', array(
+   'form' => $form->createView()));
+    }
+
+    /**
+     * Matches /new exactly
+     *
+     * @Route("/new", name="lfp_timbal_new")
+     */
+    public function newAction(Request $request)
+    {
+        $course = new Course();
+
+        $form = $this->get('form.factory')->create(CourseType::class, $course);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Course added !');
+
+            return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
+        }
+
+
         $content = $this
-          ->get('templating')
-          ->render('LFPTimbalBundle:Course:what.html.twig', array('text' => 'What',
-                                                                     'caption' => 'Teacher & Course'))
-        ;
+      ->get('templating')
+      ->render('LFPTimbalBundle:Course:new.html.twig', array(
+        'form' => $form->createView(),'action1' => 'Day & Time', 'action2' => 'Teacher',
+         'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room'))
+      ;
+
 
         return new Response($content);
     }
-    /**
-      * Matches /when exactly
-      *
-      * @Route("/when", name="lfp_timbal_when")
-      */
-    public function whenAction()
-    {
-        $content = $this
-          ->get('templating')
-          ->render('LFPTimbalBundle:Course:when.html.twig', array('text' => 'When',
-                                                                     'caption' => 'Day & Time'))
-        ;
 
-        return new Response($content);
-    }
     /**
-      * Matches /where exactly
-      *
-      * @Route("/where", name="lfp_timbal_where")
-      */
-    public function whereAction()
-    {
-        $content = $this
-          ->get('templating')
-          ->render('LFPTimbalBundle:Course:where.html.twig', array('text' => 'Where',
-                                                                     'caption' => 'Room\'s Coordinates'))
-        ;
-
-        return new Response($content);
-    }
-    /**
-      * Matches /course/* exactly
-      *
-      * @Route("/course/{id}", name="lfp_timbal_wiew")
-      */
-    public function viewAction($id)
-    {
-        return $this->render('LFPTimbalBundle:Course:view.html.twig', array('id' => $id));
-    }
-
+     * Matches /add
+     *
+     * @Route("/add", name="lfp_timbal_add")
+     */
     public function addAction(Request $request)
     {
-        // La gestion d'un formulaire est particulière, mais l'idée est la suivante :
+        $user = new User();
 
-        // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
-        if ($request->isMethod('POST')) {
-            // Ici, on s'occupera de la création et de la gestion du formulaire
 
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+        $course = new Course();
 
-            // Puis on redirige vers la page de visualisation de cettte annonce
-            return $this->redirectToRoute('lfp_timbal_view', array('id' => 5));
+        $form = $this->get('form.factory')->create(CourseType::class, $course);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($course);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Course added !');
+
+            return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
         }
 
-        // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('LFPTimbalBundle:Course:add.html.twig');
+
+        // À ce stade, le formulaire n'est pas valide car :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
+        return $this->render('LFPTimbalBundle:Course:add.html.twig', array(
+     'form' => $form->createView()));
     }
-
-    public function editAction($id, Request $request)
-    {
-        // Ici, on récupérera l'annonce correspondante à $id
-
-        // Même mécanisme que pour l'ajout
-        if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
-
-            return $this->redirectToRoute('lfp_timbal_view', array('id' => 5));
-        }
-
-        return $this->render('LFPTimbalBundle:Collect:edit.html.twig');
-    }
-
-    public function deleteAction($id)
-    {
-        // Ici, on récupérera l'annonce correspondant à $id
-
-        // Ici, on gérera la suppression de l'annonce en question
-
-        return $this->render('LFPTimbalBundle:Collect:delete.html.twig');
-    }
-
 
     public function menuAction()
     {
-        // On fixe en dur une liste ici, bien entendu par la suite
-        // on la récupérera depuis la BDD !
-        $listCourses = array(
-            array('id' => 2, 'title' => 'Geography'),
-            array('id' => 5, 'title' => 'History'),
-            array('id' => 9, 'title' => 'Arithmetics')
-        );
-
-        return $this->render('LFPTimbalBundle:Course:menu.html.twig', array(
-            // Tout l'intérêt est ici : le contrôleur passe
-            // les variables nécessaires au template !
-            'listCourses' => $listCourses
-        ));
-    }
-
-    public function viewSlugAction($_locale, $slug, $year, $_format)
-    {
-        return new Response(
-              "On pourrait afficher l'annonce correspondant au
-              slug '" .$slug."', créée en ".$year." et au format ".$_format. "."
-        );
-    }
-    /**
-     * Matches /see-course/* exactly
-     *
-     * @Route("/see-course/{id} ", name="lfp_timbal_see-course")
-     */
-    public function seeAction($id)
-    {
-        $content = $this
-          ->get('templating')
-          ->render('LFPTimbalBundle:Course:see.html.twig', array('text' => 'Voilà your course :' . $id,
-                                                                   'caption' => 'Timbal Team'))
+        $repository = $this
+          ->getDoctrine()
+          ->getManager()
+          ->getRepository('LFPTimbalBundle:Course')
       ;
+
+        $listCourses = $repository->findBy(
+        array('user' => 24)
+      );
+
+        $repository = $this
+          ->getDoctrine()
+          ->getManager()
+          ->getRepository('LFPTimbalBundle:User')
+      ;
+
+        $user = $repository->find(24);
+
+
+        $content = $this
+      ->get('templating')
+      ->render(
+          'LFPTimbalBundle:Course:menu.html.twig',
+                array('listCourses' => $listCourses )
+      );
 
         return new Response($content);
     }
