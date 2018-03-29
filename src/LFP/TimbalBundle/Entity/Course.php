@@ -87,7 +87,7 @@ class Course
 
     /**
      * @ORM\ManyToOne(targetEntity="LFP\TimbalBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
      private $user;
 

@@ -1,12 +1,6 @@
 # src/LFP/TimbalBundle/Resources/config/routing.yml
 
-# lfp_timbal_home:
-#     path:    /
-#     defaults:
-#         _controller: LFPTimbalBundle:Course:index
-#
-#
-# new:
-#     path:   /when
-#     defaults:
-#         _controller: LFPTimbalBundle:Course:when
+lfp_timbal_home:
+    path:    /
+    defaults:
+        _controller: LFPTimbalBundle:Course:index

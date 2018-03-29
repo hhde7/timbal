@@ -1,4 +1,19 @@
+# user:
+#     resource:       "@UserBundle/Resources/config/routing.yml"
+#     prefix:         /
+
 LFP_timbal:
-    resource: "@LFPTimbalBundle/Controller/"
-    prefix:   /timbal
-    type:   annotation
+    resource:         "@LFPTimbalBundle/Controller/"
+    prefix:           /timbal
+    type:             annotation
+
+login:
+    path:             /timbal/login
+    defaults:
+        _controller:  LFPUserBundle:Security:login
+
+login_check:
+    path:             /timbal/login_check
+
+logout:
+    path:             /timbal/logout

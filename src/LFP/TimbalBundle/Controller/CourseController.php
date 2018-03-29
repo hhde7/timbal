@@ -55,10 +55,6 @@ class CourseController extends Controller
             return $this->redirectToRoute('lfp_timbal_new');
         }
 
-
-        // À ce stade, le formulaire n'est pas valide car :
-        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
-        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('LFPTimbalBundle:Course:id.html.twig', array(
    'form' => $form->createView()));
     }
@@ -84,14 +80,12 @@ class CourseController extends Controller
             return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
         }
 
-
         $content = $this
       ->get('templating')
       ->render('LFPTimbalBundle:Course:new.html.twig', array(
         'form' => $form->createView(),'action1' => 'Day & Time', 'action2' => 'Teacher',
          'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room'))
       ;
-
 
         return new Response($content);
     }
@@ -120,10 +114,6 @@ class CourseController extends Controller
             return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
         }
 
-
-        // À ce stade, le formulaire n'est pas valide car :
-        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
-        // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
         return $this->render('LFPTimbalBundle:Course:add.html.twig', array(
      'form' => $form->createView()));
     }
@@ -147,7 +137,6 @@ class CourseController extends Controller
       ;
 
         $user = $repository->find(24);
-
 
         $content = $this
       ->get('templating')
