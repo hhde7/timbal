@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new LFP\TimbalBundle\LFPTimbalBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new LFP\UserBundle\LFPUserBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

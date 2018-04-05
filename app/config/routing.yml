@@ -1,7 +1,3 @@
-# user:
-#     resource:       "@UserBundle/Resources/config/routing.yml"
-#     prefix:         /
-
 LFP_timbal:
     resource:         "@LFPTimbalBundle/Controller/"
     prefix:           /timbal

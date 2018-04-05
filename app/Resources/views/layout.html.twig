@@ -21,10 +21,13 @@
       <h3>Temporary Shortcuts</h3>
       <ul>
         <li>
-          <a href="{{ path('lfp_timbal_home') }}">Home</a>
+          <a href="{{ path('lfp_timbal_home') }}">Home</a><br/>
+          <a href="{{ path('logout') }}">Logout</a>
         </li>
       </ul>
-
+      {% if app.user.userName is defined %}
+        {{ app.user.userName ~ "'\s Timbal" }}
+      {% endif %}
       <h4>Your Courses</h4>
       {{ render(controller("LFPTimbalBundle:Course:menu")) }}
     </div>
@@ -40,7 +43,7 @@
 
     {% block javascripts %}
       <script type="text/javascript" src="../../../web/assets/js/menu.js"></script>
-  {% endblock %}
+    {% endblock %}
 
   </body>
 </html>
