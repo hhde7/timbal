@@ -7,6 +7,7 @@
 
 {% block stylesheet %}
   {{ parent() }}
+  <!-- NOTE yarn gestion de js et css -->
   <link rel="stylesheet" href="../.././../web/assets/css/id.css">
 {% endblock %}
 
@@ -35,6 +36,7 @@
 
     {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
+    <!-- NOTE si pas d'ajout de script : bock inutile -->
 
   </div>
   {% block javascripts %}

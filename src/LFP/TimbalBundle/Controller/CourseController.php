@@ -12,9 +12,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use LFP\TimbalBundle\Entity\Course;
-use LFP\TimbalBundle\Entity\User;
+use LFP\UserBundle\Entity\User;
 use LFP\TimbalBundle\Form\CourseType;
-use LFP\TimbalBundle\Form\UserType;
+use LFP\UserBundle\Form\UserType;
 
 class CourseController extends Controller
 {
@@ -27,11 +27,14 @@ class CourseController extends Controller
     {
         $content = $this
           ->get('templating')
-          ->render('LFPTimbalBundle:Course:index.html.twig', array('text' => 'Timbal',
-                                                                   'caption' => 'Your TimeTable Maker'
-                                                                   ))
-      ;
-
+          ->render('LFPTimbalBundle:Course:index.html.twig', [
+            'text' => 'Timbal',
+            'caption' => 'Your TimeTable Maker'
+        ]);
+        // NOTE: important
+        // return $this->render('LFPTimbalBundle:Course:index.html.twig', [
+        //
+        //   ] );
         return new Response($content);
     }
     /**
@@ -70,6 +73,8 @@ class CourseController extends Controller
 
         $form = $this->get('form.factory')->create(CourseType::class, $course);
 
+        $course->setUser($this->getUser());
+
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($course);
@@ -77,7 +82,7 @@ class CourseController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Course added !');
 
-            return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
+            return $this->redirectToRoute('lfp_timbal_new');
         }
 
         $content = $this
@@ -90,34 +95,6 @@ class CourseController extends Controller
         return new Response($content);
     }
 
-    /**
-     * Matches /add
-     *
-     * @Route("/add", name="lfp_timbal_add")
-     */
-    public function addAction(Request $request)
-    {
-        $user = new User();
-
-
-        $course = new Course();
-
-        $form = $this->get('form.factory')->create(CourseType::class, $course);
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($course);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Course added !');
-
-            return $this->redirectToRoute('lfp_timbal_home', array('id' => $course->getId()));
-        }
-
-        return $this->render('LFPTimbalBundle:Course:add.html.twig', array(
-     'form' => $form->createView()));
-    }
-
     public function menuAction()
     {
         $repository = $this
@@ -126,23 +103,31 @@ class CourseController extends Controller
           ->getRepository('LFPTimbalBundle:Course')
       ;
 
-        $listCourses = $repository->findBy(
-        array('user' => 24)
-      );
+        $currentUser = $this->getUser();
+        if (isset($currentUser)) {
+            $userCourses = $repository->findBy(
+            array('user' => $currentUser->getId())
+          );
 
-        $repository = $this
-          ->getDoctrine()
-          ->getManager()
-          ->getRepository('LFPTimbalBundle:User')
-      ;
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery('SELECT DISTINCT c.day FROM LFPTimbalBundle:Course c WHERE c.user = :user');
+            $query->setParameter('user', $currentUser->getId());
+            $days = $query->getResult(); // array of course days
+            
+        } else {
+            $userCourses = 'User not logged';
+            $days = 0;
+        }
 
-        $user = $repository->find(24);
+
+        // var_dump($days = $repository->findByUser($currentUser->getId()));
 
         $content = $this
       ->get('templating')
       ->render(
           'LFPTimbalBundle:Course:menu.html.twig',
-                array('listCourses' => $listCourses )
+                array('userCourses' => $userCourses,
+                      'days' => $days)
       );
 
         return new Response($content);

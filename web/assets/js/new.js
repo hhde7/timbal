@@ -23,7 +23,7 @@ var clock = {
   start: function() {
     clock.displayDay();
   },
-  // Inserts the day in the clock, according the the pressed day button
+  // Inserts the day in the clock, according to the pressed day button
   displayDay: function() {
     // A click on days buttons reset the clock system
     for (var i = 0; i < daysButtons.length; i++) {
@@ -57,6 +57,7 @@ var clock = {
     }
   },
   // Sets delay on the display of time separator ':', after day slide-up
+  // NOTE: inversion naming displayTimeSeparator et delayDisplayTS
   displayTimeSeparator: function() {
     if (timeSeparator.textContent === "") {
       var setDelay = setTimeout(this.delayDisplayTS, 300);
@@ -64,7 +65,7 @@ var clock = {
       // Skip delayDisplayTS, timeSeparator.textContent already sets
     }
   },
-  // Displays the chosen time separator
+  // Displays time separator
   delayDisplayTS() {
     chosenTime.style.display = "block";
     timeSeparator.textContent = ':';

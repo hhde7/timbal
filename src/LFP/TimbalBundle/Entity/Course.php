@@ -32,28 +32,28 @@ class Course
     /**
      * @var int
      *
-     * @ORM\Column(name="chosen_hour", type="smallint")
+     * @ORM\Column(name="chosen_hour", type="string")
      */
     private $chosenHour;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="chosen_minute", type="smallint")
+     * @ORM\Column(name="chosen_minute", type="string")
      */
     private $chosenMinute;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="duration_hour", type="smallint")
+     * @ORM\Column(name="duration_hour", type="string")
      */
     private $durationHour;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="duration_minute", type="smallint")
+     * @ORM\Column(name="duration_minute", type="string")
      */
     private $durationMinute;
 
@@ -86,10 +86,12 @@ class Course
     private $room;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LFP\TimbalBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="LFP\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
-     private $user;
+    private $user;
+
+
 
     /**
      * Get id
@@ -320,11 +322,11 @@ class Course
     /**
      * Set user
      *
-     * @param \LFP\TimbalBundle\Entity\User $user
+     * @param \LFP\UserBundle\Entity\User $user
      *
      * @return Course
      */
-    public function setUser(\LFP\TimbalBundle\Entity\User $user)
+    public function setUser(\LFP\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -334,7 +336,7 @@ class Course
     /**
      * Get user
      *
-     * @return \LFP\TimbalBundle\Entity\User
+     * @return \LFP\UserBundle\Entity\User
      */
     public function getUser()
     {

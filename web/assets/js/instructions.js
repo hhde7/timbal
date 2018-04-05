@@ -66,7 +66,7 @@ function instructions() {
   function fadeToAdd() {
     var instructions = document.getElementById('instructions');
     instructions.style.opacity = "0";
-    window.location.href="login";
+    window.location.href="new";
 
   }
 

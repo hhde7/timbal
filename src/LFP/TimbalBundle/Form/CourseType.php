@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use LFP\UserBundle\Entity\User;
 
 class CourseType extends AbstractType
 {
@@ -39,49 +40,48 @@ class CourseType extends AbstractType
           'required'=> true,
           'choices' =>array(
              'Choose One' => '',
-             'Geography' => 'geography',
-             'History' => 'history',
-             'Sport' => 'sport',
-             'Maths' => 'maths',
-             'French' => 'french',
-             'English' => 'english',
-             'Sociology' => 'sociology',
-             'Psychology' => 'psychology',
-             'Litterature' => 'litterature',
-             'Biology' => 'biology',
-             'Physics' => 'physics',
-             'Chemistry' => 'chemistry',
-             'BabyFoot' => 'babyFoot',
-             'Anthropology' => 'anthropology',
-             'Anthropology' => 'archaeology',
-             'Accounting & Finance' => 'accountingFinance',
-             'Criminology' => 'criminology',
-             'Film Making' => 'filmMaking',
-             'Education' => 'education',
-             'East & South Asian Studies' => 'eastSouthAsianStudies',
-             'Geology' => 'geology',
-             'History of Art, Architecture & Design' => 'historyOfArtArchitectureDesign',
-             'Land & Property Management' => 'landPropertyManagement',
-             'Law' => 'law',
-             'Librarianship & Information Management' => 'librarianshipInformationManagement',
-             'BabyFoot' => 'babyFoot',
-             'Marketing' => 'marketing',
-             'Linguistics' => 'linguistics',
-             'English' => 'english',
-             'French' => 'french',
-             'General Engineering' => 'generalEngineering',
-             'Music' => 'music',
-             'Social Work' => 'socialWork',
-             'Robotics' => 'robotics',
-             'Youth Work' => 'youthWork',
-             'Politics' => 'politics',
-             'Medicine' => 'medicine',
+             'Geography' => 'Geography',
+             'History' => 'History',
+             'Sport' => 'Sport',
+             'Maths' => 'Maths',
+             'French' => 'French',
+             'English' => 'English',
+             'Sociology' => 'Sociology',
+             'Psychology' => 'Psychology',
+             'Litterature' => 'Litterature',
+             'Biology' => 'Biology',
+             'Physics' => 'Physics',
+             'Chemistry' => 'Chemistry',
+             'BabyFoot' => 'BabyFoot',
+             'Anthropology' => 'Anthropology',
+             'Anthropology' => 'Anthropology',
+             'Accounting & Finance' => 'Accounting & Finance',
+             'Criminology' => 'Criminology',
+             'Film Making' => 'Film Making',
+             'Education' => 'Education',
+             'East & South Asian Studies' => 'East & South Asian Studies',
+             'Geology' => 'Geology',
+             'History of Art, Architecture & Design' => 'History of Art, Architecture & Design',
+             'Land & Property Management' => 'Land & Property Management',
+             'Law' => 'Law',
+             'Librarianship & Information Management' => 'Librarianship & Information Management',
+             'BabyFoot' => 'BabyFoot',
+             'Marketing' => 'Marketing',
+             'Linguistics' => 'Linguistics',
+             'English' => 'English',
+             'French' => 'French',
+             'General Engineering' => 'General Engineering',
+             'Music' => 'Music',
+             'Social Work' => 'Social Work',
+             'Robotics' => 'Robotics',
+             'Youth Work' => 'Youth Work',
+             'Politics' => 'Politics',
+             'Medicine' => 'Medicine',
           )
         ))
         ->add('building', TextType::class, array(
     'required' => false))
         ->add('room', TextType::class)
-        //->add('user', Text::class)
         ->add('save', SubmitType::class);
     }
     /**

@@ -3,14 +3,23 @@
 {# Ce template n'hérite de personne,
    tout comme le template inclus avec {{ include() }}. #}
 
+{% for day in days %}
+  <div class="days">
+    <h3>{{ day.day }}</h3>
+    <ul class="nav nav-pills nav-stacked">
 
+      {% for course in userCourses %}
+        {% if day.day is same as(course.day) %}
 
-<ul class="nav nav-pills nav-stacked">
-  {% for course in listCourses %}
-    <li class="course-menu">
-      <span class="course-day">{{ course.day }}</span> | 
-        {{ course.course }}
-    </li>
+          <li class="course-menu">
+            <span class="course-day">{{ "%02d"|format(course.chosenHour) }}</span>
+            :
+            {{ "%02d"|format(course.chosenMinute) ~ ' ' ~ course.course }}
 
-  {% endfor %}
-</ul>
+          {% endif %}
+        </li>
+
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
