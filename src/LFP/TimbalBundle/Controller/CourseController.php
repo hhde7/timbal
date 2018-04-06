@@ -73,12 +73,40 @@ class CourseController extends Controller
 
         $form = $this->get('form.factory')->create(CourseType::class, $course);
 
+
         $course->setUser($this->getUser());
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $chosenDay = $form->getData()->getDay();
+            // Set a number to each day for sorting
+            switch ($chosenDay) {
+                case 'Monday':
+                    $course->setDayRank(1);
+                    break;
+                case 'Tuesday':
+                    $course->setDayRank(2);
+                    break;
+                case 'Wednesday':
+                    $course->setDayRank(3);
+                    break;
+                case 'Thursday':
+                    $course->setDayRank(4);
+                    break;
+                case 'Friday':
+                    $course->setDayRank(5);
+                    break;
+                case 'Saturday':
+                    $course->setDayRank(6);
+                    break;
+                case 'Sunday':
+                    $course->setDayRank(7);
+                    break;
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($course);
             $em->flush();
+
+
 
             $request->getSession()->getFlashBag()->add('notice', 'Course added !');
 
@@ -104,30 +132,31 @@ class CourseController extends Controller
       ;
 
         $currentUser = $this->getUser();
+
         if (isset($currentUser)) {
+            // Gets current user courses
+            // according his id
             $userCourses = $repository->findBy(
             array('user' => $currentUser->getId())
           );
-
+            // Gets the number linked to the course's day
+            // This number will help to order the days chronologically
             $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery('SELECT DISTINCT c.day FROM LFPTimbalBundle:Course c WHERE c.user = :user');
+            $query = $em->createQuery('SELECT DISTINCT c.dayRank FROM LFPTimbalBundle:Course c WHERE c.user = :user');
             $query->setParameter('user', $currentUser->getId());
-            $days = $query->getResult(); // array of course days
-            
+            $dayRanks = $query->getResult();
         } else {
             $userCourses = 'User not logged';
-            $days = 0;
+            $dayRanks = [];
         }
 
-
-        // var_dump($days = $repository->findByUser($currentUser->getId()));
 
         $content = $this
       ->get('templating')
       ->render(
           'LFPTimbalBundle:Course:menu.html.twig',
                 array('userCourses' => $userCourses,
-                      'days' => $days)
+                      'dayRanks' => $dayRanks)
       );
 
         return new Response($content);

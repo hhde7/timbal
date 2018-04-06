@@ -86,12 +86,17 @@ class Course
     private $room;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="day_rank", type="string", nullable=true)
+     */
+    private $dayRank;
+
+    /**
      * @ORM\ManyToOne(targetEntity="LFP\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
-
-
 
     /**
      * Get id
@@ -130,7 +135,7 @@ class Course
     /**
      * Set chosenHour
      *
-     * @param integer $chosenHour
+     * @param string $chosenHour
      *
      * @return Course
      */
@@ -144,7 +149,7 @@ class Course
     /**
      * Get chosenHour
      *
-     * @return integer
+     * @return string
      */
     public function getChosenHour()
     {
@@ -154,7 +159,7 @@ class Course
     /**
      * Set chosenMinute
      *
-     * @param integer $chosenMinute
+     * @param string $chosenMinute
      *
      * @return Course
      */
@@ -168,7 +173,7 @@ class Course
     /**
      * Get chosenMinute
      *
-     * @return integer
+     * @return string
      */
     public function getChosenMinute()
     {
@@ -178,7 +183,7 @@ class Course
     /**
      * Set durationHour
      *
-     * @param integer $durationHour
+     * @param string $durationHour
      *
      * @return Course
      */
@@ -192,7 +197,7 @@ class Course
     /**
      * Get durationHour
      *
-     * @return integer
+     * @return string
      */
     public function getDurationHour()
     {
@@ -202,7 +207,7 @@ class Course
     /**
      * Set durationMinute
      *
-     * @param integer $durationMinute
+     * @param string $durationMinute
      *
      * @return Course
      */
@@ -216,7 +221,7 @@ class Course
     /**
      * Get durationMinute
      *
-     * @return integer
+     * @return string
      */
     public function getDurationMinute()
     {
@@ -317,6 +322,30 @@ class Course
     public function getRoom()
     {
         return $this->room;
+    }
+
+    /**
+     * Set dayRank
+     *
+     * @param string $dayRank
+     *
+     * @return Course
+     */
+    public function setDayRank($dayRank)
+    {
+        $this->dayRank = $dayRank;
+
+        return $this;
+    }
+
+    /**
+     * Get dayRank
+     *
+     * @return string
+     */
+    public function getDayRank()
+    {
+        return $this->dayRank;
     }
 
     /**
