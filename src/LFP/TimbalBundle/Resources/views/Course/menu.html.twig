@@ -1,25 +1,60 @@
-{# src/LFP/TimbalBundle/Resources/views/Course/menu.html.twig #}
+<!-- Sorts days by day_rank from 1 to 7 -->
+{% for dayRank in dayRanks | sort %}
+  <!-- This boolean is used below for <h3> -->
+  {% set i = true %}
+  <div class="time-table">
 
-{# Ce template n'hérite de personne,
-   tout comme le template inclus avec {{ include() }}. #}
-
-{% for day in days %}
-  <div class="days">
-    <h3>{{ day.day }}</h3>
     <ul class="nav nav-pills nav-stacked">
+      <!-- Uses twig extension victorhaggqvist/Twig-sort-by-field -->
+      {% for course in userCourses | sortbyfield('chosenMinute') | sortbyfield('chosenHour') %}
 
-      {% for course in userCourses %}
-        {% if day.day is same as(course.day) %}
+        {% if dayRank.dayRank is same as(course.dayRank) %}
 
-          <li class="course-menu">
-            <span class="course-day">{{ "%02d"|format(course.chosenHour) }}</span>
-            :
-            {{ "%02d"|format(course.chosenMinute) ~ ' ' ~ course.course }}
-
+          {% if i is same as(true) %}
+            <h3 class="course-day">{{ course.day }}</h3>
+            <!-- Day displayed once on the top of each <ul> -->
+            {% set i = false %}
           {% endif %}
-        </li>
+
+          <li class="course-block {{ course.day|lower ~ '-block'}}">
+            <div>
+          <i class="fas fa-map-signs"></i>
+              {% if course.building is not null %}
+                {{ course.building }}
+              {% endif %}
+              {{ course.room }}
+              <div class="course-main">
+                <div class="course-hour">
+                  {{ "%02d"|format(course.chosenHour) }}
+                  :
+                  {{ "%02d"|format(course.chosenMinute) }}
+                </div>
+                <div class="course-name">
+                  {{ course.course }}
+                </div>
+              </div>
+
+              {% if course.teacher is not null %}
+                <div class="teacher-name">
+                  <br/>
+                  {{ course.teacher }}
+                  <i class="fas fa-book"></i>
+                </div>
+              {% endif %}
+              <br/>
+              <div class="duration-block">
+                <i class="fas fa-hourglass-half"></i>
+                {{ "%02d"|format(course.durationHour) }}
+                h
+                {{ "%02d"|format(course.durationMinute) }}
+              </div>
+            </div>
+          </li>
+
+        {% endif %}
 
       {% endfor %}
     </ul>
+
   </div>
 {% endfor %}

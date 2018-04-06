@@ -13,26 +13,32 @@ function menuTranslateX() {
   }
 }
 
-function courseColor() {
+function dayColor() {
   var courses = document.getElementsByClassName('course-menu');
-  var days = document.getElementsByClassName('course-day');
+  var courseDays = document.getElementsByClassName('course-day');
 
-  for (var i = 0; i < days.length; i++) {
-    switch (days[i].textContent) {
+  for (var i = 0; i < courseDays.length; i++) {
+    switch (courseDays[i].textContent) {
       case "Monday":
-        courses[i].style.backgroundColor = "darksalmon";
-        break;
-      case "Thursday":
-        courses[i].style.backgroundColor = "lightgreen";
-        break;
-      case "Wednesday":
-        courses[i].style.backgroundColor = "lightblue";
+        courseDays[i].style.backgroundColor = "rgba(173, 230, 39, 0.76)";
         break;
       case "Tuesday":
-        courses[i].style.backgroundColor = "lightpink";
+        courseDays[i].style.backgroundColor = "rgba(12, 186, 255, 0.65)";
+        break;
+      case "Wednesday":
+        courseDays[i].style.backgroundColor = "rgba(14, 191, 109, 0.78)";
+        break;
+      case "Thursday":
+        courseDays[i].style.backgroundColor = "rgba(255, 81, 64, 0.72)";
         break;
       case "Friday":
-        courses[i].style.backgroundColor = "gold";
+        courseDays[i].style.backgroundColor = "rgba(204, 20, 55, 0.68)";
+        break;
+      case "Saturday":
+        courseDays[i].style.backgroundColor = "rgba(102, 63, 158, 0.7)";
+        break;
+      case "Sunday":
+        courseDays[i].style.backgroundColor = "rgb(239, 190, 24)";
         break;
 
       default:
@@ -42,4 +48,4 @@ function courseColor() {
   }
 }
 
-courseColor();
+dayColor();
