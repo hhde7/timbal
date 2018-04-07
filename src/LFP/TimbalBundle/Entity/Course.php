@@ -93,10 +93,19 @@ class Course
     private $dayRank;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="$time_format", type="string", length=7, nullable=true)
+     */
+    private $courseTime;
+
+    /**
      * @ORM\ManyToOne(targetEntity="LFP\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true)
      */
     private $user;
+
+
 
     /**
      * Get id
@@ -346,6 +355,30 @@ class Course
     public function getDayRank()
     {
         return $this->dayRank;
+    }
+
+    /**
+     * Set courseTime
+     *
+     * @param string $courseTime
+     *
+     * @return Course
+     */
+    public function setCourseTime($hour, $minute)
+    {
+        $this->courseTime = sprintf("%02d",$hour) . 'h' . sprintf("%02d",$minute);
+
+        return $this;
+    }
+
+    /**
+     * Get courseTime
+     *
+     * @return string
+     */
+    public function getCourseTime()
+    {
+        return $this->courseTime;
     }
 
     /**

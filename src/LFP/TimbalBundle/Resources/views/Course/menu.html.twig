@@ -6,7 +6,7 @@
 
     <ul class="nav nav-pills nav-stacked">
       <!-- Uses twig extension victorhaggqvist/Twig-sort-by-field -->
-      {% for course in userCourses | sortbyfield('chosenMinute') | sortbyfield('chosenHour') %}
+      {% for course in userCourses | sortbyfield('courseTime') %}
 
         {% if dayRank.dayRank is same as(course.dayRank) %}
 

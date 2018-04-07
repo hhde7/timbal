@@ -70,13 +70,17 @@ class CourseController extends Controller
     public function newAction(Request $request)
     {
         $course = new Course();
-
         $form = $this->get('form.factory')->create(CourseType::class, $course);
-
 
         $course->setUser($this->getUser());
 
+        // $form = $this->createForm(CourseType::class);
+        // $course = $form->getData();
+
+
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+            // NOTE: a mettre dans setter
             $chosenDay = $form->getData()->getDay();
             // Set a number to each day for sorting
             switch ($chosenDay) {
@@ -102,11 +106,15 @@ class CourseController extends Controller
                     $course->setDayRank(7);
                     break;
             }
+
+            $hour = $form->getData()->getChosenHour();
+            $minute = $form->getData()->getChosenMinute();
+
+            $form->getData()->setCourseTime($hour, $minute);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($course);
             $em->flush();
-
-
 
             $request->getSession()->getFlashBag()->add('notice', 'Course added !');
 
@@ -141,16 +149,18 @@ class CourseController extends Controller
           );
             // Gets the number linked to the course's day
             // This number will help to order the days chronologically
+            // NOTE: creer une fonction
             $em = $this->getDoctrine()->getManager();
             $query = $em->createQuery('SELECT DISTINCT c.dayRank FROM LFPTimbalBundle:Course c WHERE c.user = :user');
             $query->setParameter('user', $currentUser->getId());
             $dayRanks = $query->getResult();
+
         } else {
             $userCourses = 'User not logged';
             $dayRanks = [];
         }
 
-
+        // NOTE: simpliser le render
         $content = $this
       ->get('templating')
       ->render(
