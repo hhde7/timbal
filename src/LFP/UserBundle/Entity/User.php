@@ -4,10 +4,12 @@ namespace LFP\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="lfp_user")
  * @ORM\Entity(repositoryClass="LFP\UserBundle\Repository\UserRepository")
+ * @UniqueEntity(fields="username", message="This user already exists.")
  */
 class User implements UserInterface
 {

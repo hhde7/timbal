@@ -1,15 +1,18 @@
 <?php
-// src//LFP/TimbalBundle/Entity/Course
 
 namespace LFP\TimbalBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Course
  *
  * @ORM\Table(name="timbal_course")
  * @ORM\Entity(repositoryClass="LFP\TimbalBundle\Repository\CourseRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Course
 {
@@ -25,35 +28,61 @@ class Course
     /**
      * @var string
      *
-     * @ORM\Column(name="day", type="string", length=15)
+     * @ORM\Column(name="day", type="string", length=9)
+     * @Assert\Choice(choices={"Monday", "Tuesday", "Wednesday", "Thursday",
+     *                         "Friday", "Saturday", "Sunday"},
+     *                         message="Enter a valid day."
+     *)
      */
     private $day;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="chosen_hour", type="string")
+     * @ORM\Column(name="chosen_hour", type="string", length=2)
+     * @Assert\Length(min=1, max=2)
+     * @Assert\Choice(choices={"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+     *                         "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+     *                         "20", "21", "22", "23" },
+     *                         message="Enter a valid hour."
+     *)
      */
     private $chosenHour;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="chosen_minute", type="string")
+     * @ORM\Column(name="chosen_minute", type="string", length=2)
+     * @Assert\Length(min=1, max=2)
+     * @Assert\Choice(choices={"0", "5", "10", "15", "20", "25", "30", "35",
+     *                         "40", "45", "50", "55"},
+     *                         message="Enter a valid minute."
+     *)
      */
     private $chosenMinute;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="duration_hour", type="string")
+     * @ORM\Column(name="duration_hour", type="string", length=2)
+     * @Assert\Length(min=1, max=2)
+     * @Assert\Choice(choices={"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+     *                         "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+     *                         "20", "21", "22", "23" },
+     *                         message="Enter a valid hour."
+     *)
      */
     private $durationHour;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="duration_minute", type="string")
+     * @ORM\Column(name="duration_minute", type="string", length=2)
+     * @Assert\Length(min=1, max=2)
+     * @Assert\Choice(choices={"0", "5", "10", "15", "20", "25", "30", "35",
+     *                         "40", "45", "50", "55"},
+     *                         message="Enter a valid minute."
+     *)
      */
     private $durationMinute;
 
@@ -61,6 +90,7 @@ class Course
      * @var string
      *
      * @ORM\Column(name="teacher", type="string", length=30, nullable=true)
+     * @Assert\Length(min=3, max=30)
      */
     private $teacher;
 
@@ -68,6 +98,7 @@ class Course
      * @var string
      *
      * @ORM\Column(name="course", type="string", length=50)
+     * @Assert\Length(min=3, max=50)
      */
     private $course;
 
@@ -75,6 +106,7 @@ class Course
      * @var string
      *
      * @ORM\Column(name="building", type="string", length=10, nullable=true)
+     * @Assert\Length(min=1, max=10)
      */
     private $building;
 
@@ -82,13 +114,14 @@ class Course
      * @var string
      *
      * @ORM\Column(name="room", type="string", length=30)
+     * @Assert\Length(min=1, max=30)
      */
     private $room;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="day_rank", type="string", nullable=true)
+     * @ORM\Column(name="day_rank", type="string", length=1, nullable=true)
      */
     private $dayRank;
 
@@ -365,6 +398,9 @@ class Course
           case 'Sunday':
               $dayRank = 7;
               break;
+          default:
+              $dayRank = 0;
+              echo "The day is not valid";
         }
 
         $this->dayRank = $dayRank;

@@ -100,6 +100,7 @@
       {{ form_label(form.course) }}
       {{ form_errors(form.course) }}
       {{ form_widget(form.course) }}
+          {{ dump(form.course.vars.choices|sort) }}
 
     </div>
     <div id="where">

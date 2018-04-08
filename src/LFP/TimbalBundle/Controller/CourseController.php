@@ -88,10 +88,12 @@ class CourseController extends Controller
             ->getDoctrine()
             ->getManager()
         ;
-
+        
         $currentUser = $this->getUser();
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            // -----------------------------------------------
+            // NOTE: ne marche pas
             // Checks number of courses for the chosen day
             $coursesByDay = $this
                 ->getDoctrine()
@@ -99,7 +101,7 @@ class CourseController extends Controller
                 ->getRepository('LFPTimbalBundle:Course')
                 ->checkCoursesLimit($em, $currentUser, $course)
             ;
-
+            // ----------------------------------------------
 
             $chosenDay = $form->getData()->getDay();
             $form->getData()->setDayRank($chosenDay);

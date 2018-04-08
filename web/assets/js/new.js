@@ -289,7 +289,6 @@ var clock = {
       }, 100);
     }
   }
-
 }
 
 clock.start();

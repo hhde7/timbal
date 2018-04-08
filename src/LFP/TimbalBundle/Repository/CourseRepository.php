@@ -1,6 +1,5 @@
 <?php
 
-
 namespace LFP\TimbalBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
@@ -27,6 +26,7 @@ class CourseRepository extends \Doctrine\ORM\EntityRepository
 
     public function checkCoursesLimit($em, $currentUser, $course)
     {
+      // NOTE: ne marche pas
       $query = $em->createQuery('SELECT COUNT(c.dayRank) FROM LFPTimbalBundle:Course c WHERE c.user = :user and c.day = :chosenDay');
       $query->setParameter('user', $currentUser->getId());
       $query->setParameter('chosenDay', $course->getDay());
