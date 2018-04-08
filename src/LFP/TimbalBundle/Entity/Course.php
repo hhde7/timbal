@@ -340,8 +340,33 @@ class Course
      *
      * @return Course
      */
-    public function setDayRank($dayRank)
+    public function setDayRank($chosenDay)
     {
+        // Set a number to each day for sorting
+        switch ($chosenDay) {
+          case 'Monday':
+              $dayRank = 1;
+              break;
+          case 'Tuesday':
+              $dayRank = 2;
+              break;
+          case 'Wednesday':
+              $dayRank = 3;
+              break;
+          case 'Thursday':
+              $dayRank = 4;
+              break;
+          case 'Friday':
+              $dayRank = 5;
+              break;
+          case 'Saturday':
+              $dayRank = 6;
+              break;
+          case 'Sunday':
+              $dayRank = 7;
+              break;
+        }
+
         $this->dayRank = $dayRank;
 
         return $this;
@@ -366,7 +391,7 @@ class Course
      */
     public function setCourseTime($hour, $minute)
     {
-        $this->courseTime = sprintf("%02d",$hour) . 'h' . sprintf("%02d",$minute);
+        $this->courseTime = sprintf("%02d", $hour) . 'h' . sprintf("%02d", $minute);
 
         return $this;
     }
