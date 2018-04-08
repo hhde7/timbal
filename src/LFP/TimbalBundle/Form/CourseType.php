@@ -25,17 +25,17 @@ class CourseType extends AbstractType
     {
         $builder
         ->add('day', TextType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('chosenHour', NumberType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('chosenMinute', NumberType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('durationHour', NumberType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('durationMinute', NumberType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('teacher', TextType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('course', ChoiceType::class, array(
           'required'=> true,
           'choices' =>array(
@@ -80,7 +80,7 @@ class CourseType extends AbstractType
           )
         ))
         ->add('building', TextType::class, array(
-    'required' => false))
+          'required' => false))
         ->add('room', TextType::class)
         ->add('save', SubmitType::class);
     }
