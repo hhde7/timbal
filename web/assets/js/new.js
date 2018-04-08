@@ -1,3 +1,4 @@
+var notification = document.getElementById('notification');
 var daysButtons = document.getElementsByClassName('day');
 var chosenDay = document.getElementById('lfp_timbalbundle_course_day');
 var chosenTime = document.getElementById('chosen-time');
@@ -22,6 +23,7 @@ var clock = {
   // Clock launch
   start: function() {
     clock.displayDay();
+    clock.flashMessage();
   },
   // Inserts the day in the clock, according to the pressed day button
   displayDay: function() {
@@ -270,6 +272,22 @@ var clock = {
       }
     }
 
+  },
+  flashMessage: function() {
+    if (notification !== null) {
+      setInterval(function() {
+        notification.style.opacity = "0";
+        notification.style.transform = "translateX(-250px)";
+        clock.hideFlashMessage();
+      }, 3000);
+    }
+  },
+  hideFlashMessage: function() {
+    if (notification !== null) {
+      setInterval(function() {
+        notification.style.display = "none";
+      }, 100);
+    }
   }
 
 }

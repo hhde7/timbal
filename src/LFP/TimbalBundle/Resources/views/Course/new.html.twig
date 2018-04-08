@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   {% endblock %}
   <div id="wrapper">
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+      <div id="notification">
+        <p>
+          <i class="fas fa-arrow-left"></i>{{ flashMessage ~ ' ' ~ status }}
+        </p>
+      </div>
+    {% endfor %}
     <h1>Timbal</h1>
-
     <p id="days-label" for="button">{{ action1 }}</p>
 
     <div id="days">
