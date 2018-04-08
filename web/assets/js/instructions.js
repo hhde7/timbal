@@ -58,12 +58,12 @@ function instructions() {
       // STOPS THE SLIDER ANIMATION AFTER THE LAST SLIDE IS DISPLAYED
       if (i > slidesContent.length - 1) {
         clearInterval(slideAnimation);
-        setInterval(fadeToAdd, 2000);
+        setInterval(fade, 2000);
       }
     }, 2000);
   }
 
-  function fadeToAdd() {
+  function fade() {
     var instructions = document.getElementById('instructions');
     instructions.style.opacity = "0";
     window.location.href="new";
