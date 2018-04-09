@@ -18,7 +18,7 @@
     {% for flashMessage in app.session.flashbag.get('notice') %}
       <div id="notification">
         <p>
-          <i class="fas fa-arrow-left"></i>{{ flashMessage ~ ' ' ~ status }}
+          <i class="fas fa-arrow-left"></i>{{ flashMessage }}
         </p>
       </div>
     {% endfor %}
@@ -100,7 +100,7 @@
       {{ form_label(form.course) }}
       {{ form_errors(form.course) }}
       {{ form_widget(form.course) }}
-          {{ dump(form.course.vars.choices|sort) }}
+          <!-- {{ dump(form.course.vars.choices|sort) }} -->
 
     </div>
     <div id="where">

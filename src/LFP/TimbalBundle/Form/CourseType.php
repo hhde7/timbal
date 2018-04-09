@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use LFP\UserBundle\Entity\User;
+// use LFP\UserBundle\Entity\User;
 
 class CourseType extends AbstractType
 {
