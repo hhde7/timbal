@@ -15,23 +15,22 @@ class CourseRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getDayRank($em, $currentUser)
     {
-      // Gets the number of the day 1 for Monday,2 for Tuesday, 3 for Wednesday ...
-      // This number will help to order the days chronologically
-      $query = $em->createQuery('SELECT DISTINCT c.dayRank FROM LFPTimbalBundle:Course c WHERE c.user = :user');
-      $query->setParameter('user', $currentUser->getId());
-      $data = $query->getResult();
+        // Gets the number of the day 1 for Monday,2 for Tuesday, 3 for Wednesday ...
+        // This number will help to order the days chronologically
+        $query = $em->createQuery('SELECT DISTINCT c.dayRank FROM LFPTimbalBundle:Course c WHERE c.user = :user');
+        $query->setParameter('user', $currentUser->getId());
+        $data = $query->getResult();
 
-      return $data;
+        return $data;
     }
 
-    public function checkCoursesLimit($em, $currentUser, $course)
+    public function checkCoursesLimit($em, $currentUser, $chosenDay)
     {
-      // NOTE: ne marche pas
-      $query = $em->createQuery('SELECT COUNT(c.dayRank) FROM LFPTimbalBundle:Course c WHERE c.user = :user and c.day = :chosenDay');
-      $query->setParameter('user', $currentUser->getId());
-      $query->setParameter('chosenDay', $course->getDay());
-      $data = $query->getResult();
+        $query = $em->createQuery('SELECT COUNT(c.dayRank) FROM LFPTimbalBundle:Course c WHERE c.user = :user and c.day = :chosenDay');
+        $query->setParameter('user', $currentUser->getId());
+        $query->setParameter('chosenDay', $chosenDay);
+        $data = $query->getResult();
 
-      return $data;
+        return $data;
     }
 }

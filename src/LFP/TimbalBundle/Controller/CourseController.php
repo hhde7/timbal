@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use LFP\TimbalBundle\Entity\Course;
-use LFP\UserBundle\Entity\User;
 use LFP\TimbalBundle\Form\CourseType;
+use LFP\UserBundle\Entity\User;
 use LFP\UserBundle\Form\UserType;
 
 class CourseController extends Controller
@@ -34,40 +34,7 @@ class CourseController extends Controller
         //   ] );
         return new Response($content);
     }
-    /**
-     * Matches /id exactly.
-     *
-     * @Route("/id ", name="lfp_timbal_id")
-     */
-    public function idAction(Request $request)
-    {
-        $user = new User();
 
-        $form = $this
-            ->get('form.factory')
-            ->create(UserType::class, $user)
-            ;
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this
-                ->getDoctrine()
-                ->getManager()
-                ;
-            $em->persist($user);
-            $em->flush();
-
-            $request
-                ->getSession()
-                ->getFlashBag()
-                ->add('notice', 'User added !')
-                ;
-
-            return $this->redirectToRoute('lfp_timbal_new');
-        }
-
-        return $this->render('LFPTimbalBundle:Course:id.html.twig', array(
-            'form' => $form->createView(), ));
-    }
 
     /**
      * Matches /new exactly.
@@ -88,20 +55,28 @@ class CourseController extends Controller
             ->getDoctrine()
             ->getManager()
         ;
-        
+
         $currentUser = $this->getUser();
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            // -----------------------------------------------
-            // NOTE: ne marche pas
+
             // Checks number of courses for the chosen day
+            $chosenDay = $course->getDay();
             $coursesByDay = $this
                 ->getDoctrine()
                 ->getManager()
                 ->getRepository('LFPTimbalBundle:Course')
-                ->checkCoursesLimit($em, $currentUser, $course)
+                ->checkCoursesLimit($em, $currentUser, $chosenDay)
             ;
-            // ----------------------------------------------
+            foreach ($coursesByDay as $value) {
+              if ($value[1] > 5) {
+                $request->getSession()->getFlashBag()->add('notice', 'Maximum courses for ' . $course->getDay() . ' reached !' );
+                return $this->redirectToRoute('lfp_timbal_new');
+              }
+            };
+
+
+
 
             $chosenDay = $form->getData()->getDay();
             $form->getData()->setDayRank($chosenDay);
@@ -113,16 +88,17 @@ class CourseController extends Controller
             $em->persist($course);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', $course->getCourse());
+            $request->getSession()->getFlashBag()->add('notice', $course->getCourse() . ' added !' );
 
             return $this->redirectToRoute('lfp_timbal_new');
         }
+
 
         $content = $this
             ->get('templating')
             ->render('LFPTimbalBundle:Course:new.html.twig', array(
                 'form' => $form->createView(), 'action1' => 'Day & Time', 'action2' => 'Teacher',
-                'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room', 'status' => 'Added !'))
+                'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room'))
             ;
 
         return new Response($content);
