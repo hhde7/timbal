@@ -65,6 +65,16 @@ nav ul li {
   font-size: 13px;
 }
 
+.fa-trash {
+  float: right;
+  transition: all ease 0.3s;
+}
+
+.fa-trash:hover {
+  color: red;
+  cursor: pointer;
+} 
+
 .duration-block {}
 
 .monday-block {
