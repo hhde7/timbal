@@ -7,6 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+// use AppBundle\Doctrine\HashPasswordListener;
 
 /**
  * @ORM\Table(name="lfp_user")
@@ -29,10 +30,10 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(name="password", type="string", length=20)
+     * @ORM\Column(name="password", type="string", length=60)
      * @Assert\Length(
      *     min=10,
-     *     max=20,
+     *     max=60,
      *     minMessage = "Username must be at least {{ limit }} characters long",
      *     maxMessage = "Username must be at least {{ limit }} characters long"
      *)

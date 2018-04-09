@@ -18,7 +18,7 @@
     <div id="menu">
       <div id="menu-call">&#8801;</div>
       {% if app.user.userName is defined %}
-        <h2>{{ app.user.userName ~ "'\s Timbal" }}</h2>
+        <h2>{{ app.user.userName|capitalize ~ "'\s Timbal" }}</h2>
       {% endif %}
       <nav id="timetable-options">
         <ul>

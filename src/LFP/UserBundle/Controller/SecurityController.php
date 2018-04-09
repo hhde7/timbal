@@ -80,7 +80,7 @@ class SecurityController extends Controller
             $request
                 ->getSession()
                 ->getFlashBag()
-                ->add('notice', 'Hello ' . $user->getUsername() . ' your Timbal is here')
+                ->add('notice', 'Hello ' . ucfirst($user->getUsername()) . ' your Timbal is here')
                 ;
 
 
