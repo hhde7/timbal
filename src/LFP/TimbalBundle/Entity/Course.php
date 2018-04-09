@@ -133,7 +133,7 @@ class Course
     private $courseTime;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LFP\UserBundle\Entity\User", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="LFP\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $user;
