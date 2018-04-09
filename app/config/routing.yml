@@ -1,3 +1,8 @@
+LFP_user:
+  resource:           "@LFPUserBundle/Controller/"
+  prefix:             /timbal
+  type:               annotation
+
 LFP_timbal:
     resource:         "@LFPTimbalBundle/Controller/"
     prefix:           /timbal

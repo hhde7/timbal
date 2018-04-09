@@ -6,6 +6,13 @@ security:
     Symfony\Component\Security\Core\User\User: plaintext
     LFP\UserBundle\Entity\User: plaintext
 
+    # Symfony\Component\Security\Core\User\User:
+    #     algorithm: bcrypt
+    #     cost: 12
+    # LFP\UserBundle\Entity\User:
+    #     algorithm: bcrypt
+    #     cost: 12
+
   role_hierarchy:
     ROLE_ADMIN:       ROLE_USER
     ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
@@ -16,23 +23,27 @@ security:
           class: LFP\UserBundle\Entity\User
           property: username
 
-      # memory:
-      #   users:
-      #     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-      #     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
+
+    home/:
+      pattern:   ^/timbal/$
+      anonymous: true
+
+    home:
+      pattern:   ^/timbal$
+      anonymous: true
+
        # On crée un pare-feu uniquement pour le formulaire
     main_login:
         # Cette expression régulière permet de prendre /login (mais pas /login_check !)
       pattern:   ^/timbal/login$
-      anonymous: true # On autorise alors les anonymes sur ce pare-feu
+      anonymous: ~ # On autorise alors les anonymes sur ce pare-feu
 
-    home:
-      pattern: ^/timbal/$
+    id:
+      pattern: ^/timbal/id$
       anonymous: true
 
     main:
@@ -47,5 +58,14 @@ security:
         path:       logout
         target:     login
 
+      # remember_me:
+      #   secret:   '%secret%'
+      #   lifetime: 604800 # 1 week in seconds
+      #   path:     /
+      #           # by default, the feature is enabled by checking a
+      #           # checkbox in the login form (see below), uncomment the
+      #           # following line to always enable it.
+      #           #always_remember_me: true
+
   access_control:
-    #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+    # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: http }

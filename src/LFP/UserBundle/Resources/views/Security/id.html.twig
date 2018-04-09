@@ -20,14 +20,19 @@
 
     <h1>Create a user Id</h1>
     <div>
-      {{ form_label(form.email) }}
-      {{ form_errors(form.email) }}
-      {{ form_widget(form.email) }}
+      {{ form_label(form.username) }}
+      {{ form_errors(form.username) }}
+      {{ form_widget(form.username) }}
     </div>
     <div>
       {{ form_label(form.password) }}
       {{ form_errors(form.password) }}
       {{ form_widget(form.password) }}
+    </div>
+    <div>
+      {{ form_label(form.email) }}
+      {{ form_errors(form.email) }}
+      {{ form_widget(form.email) }}
     </div>
     <div>
       {{ form_widget(form.save, {'attr': {'class': 'save'}}) }}
@@ -36,9 +41,9 @@
 
     {# Fermeture de la balise <form> du formulaire HTML #}
     {{ form_end(form) }}
-    <!-- NOTE si pas d'ajout de script : bock inutile -->
 
   </div>
+  <!-- NOTE si pas d'ajout de script : bock inutile -->
   {% block javascripts %}
     {{ parent() }}
   {% endblock %}

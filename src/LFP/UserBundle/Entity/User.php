@@ -5,6 +5,8 @@ namespace LFP\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="lfp_user")
@@ -13,38 +15,54 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class User implements UserInterface
 {
-  /**
-   * @ORM\Column(name="id", type="integer")
-   * @ORM\Id
-   * @ORM\GeneratedValue(strategy="AUTO")
-   */
-  private $id;
+    /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
-  /**
-   * @ORM\Column(name="username", type="string", length=255, unique=true)
-   */
-  private $username;
+    /**
+     * @ORM\Column(name="username", type="string", length=30, unique=true)
+     * @Assert\Length(min=3, max=30)
+     */
+    private $username;
 
-  /**
-   * @ORM\Column(name="password", type="string", length=255)
-   */
-  private $password;
+    /**
+     * @ORM\Column(name="password", type="string", length=20)
+     * @Assert\Length(
+     *     min=10,
+     *     max=20,
+     *     minMessage = "Username must be at least {{ limit }} characters long",
+     *     maxMessage = "Username must be at least {{ limit }} characters long"
+     *)
+     */
+    private $password;
 
-  /**
-   * @ORM\Column(name="salt", type="string", length=255)
-   */
-  private $salt;
+    /**
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     *)
+     */
+    private $email;
 
-  /**
-   * @ORM\Column(name="roles", type="array")
-   */
-  private $roles = array();
+    /**
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
 
-  // Les getters et setters
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
 
-  public function eraseCredentials()
-  {
-  }
+    // Les getters et setters
+
+    public function eraseCredentials()
+    {
+    }
 
     /**
      * Get id
@@ -150,5 +168,29 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }
