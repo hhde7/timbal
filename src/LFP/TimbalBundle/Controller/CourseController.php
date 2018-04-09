@@ -138,4 +138,37 @@ class CourseController extends Controller
 
         return new Response($content);
     }
+
+    /**
+     * @Route("/delete/{id}", name="lfp_timbal_delete")
+     *
+     */
+   public function deleteAction(Request $request, $id)
+   {
+
+     $em = $this
+       ->getDoctrine()
+       ->getManager()
+     ;
+
+     $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
+     var_dump($course);
+     // $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
+     // var_dump($course);
+     // $em->remove($course);
+     // $em->flush();
+     // var_dump($course);
+     //
+     //   // $content = $this
+     //   //     ->get('templating')
+     //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [
+     //   //         'text' => 'Timbal',
+     //   //         'caption' => 'Your TimeTable Maker',
+     //   //     ]);
+     //   // // NOTE: important
+     //   // // return $this->render('LFPTimbalBundle:Course:index.html.twig', [
+     //   //
+     //   // //   ] );
+       return new Response($id);
+     }
 }
