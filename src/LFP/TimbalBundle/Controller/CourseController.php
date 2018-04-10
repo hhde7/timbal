@@ -152,13 +152,11 @@ class CourseController extends Controller
      ;
 
      $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
-     var_dump($course);
-     // $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
-     // var_dump($course);
-     // $em->remove($course);
-     // $em->flush();
-     // var_dump($course);
-     //
+
+     $em->remove($course);
+     $em->flush();
+
+  
      //   // $content = $this
      //   //     ->get('templating')
      //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [

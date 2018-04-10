@@ -12,46 +12,49 @@
         {% if dayRank.dayRank is same as(course.dayRank) %}
 
           {% if i is same as(true) %}
-            <h3 class="course-day">{{ course.day }}</h3>
+            <div>
+              <h3 class="course-day {{ course.day|lower }}" id="{{course.day ~ '-label'}}">{{ course.day }}</h3>
+            </div>
             <!-- Day displayed once on the top of each <ul> -->
             {% set i = false %}
           {% endif %}
 
-          <li class="course-block {{ course.day|lower ~ '-block'}}">
-            <div>
-              <i class="fas fa-trash"></i>
-              <i class="fas fa-map-signs"></i>
-              {% if course.building is not null %}
-                {{ course.building }}
-              {% endif %}
-              {{ course.room }}
-              <div class="course-main">
-                <div class="course-hour">
-                  {{ "%02d"|format(course.chosenHour) }}
-                  :
-                  {{ "%02d"|format(course.chosenMinute) }}
+            <li class="course-block {{ course.day|lower ~ '-block'}} {{course.day|lower}}" id="{{ course.id}}">
+              <div>
+                <i class="fas fa-trash" title="Delete this one"></i>
+                <i class="fas fa-map-signs"></i>
+                {% if course.building is not null %}
+                  {{ course.building }}
+                {% endif %}
+                {{ course.room }}
+                <div class="course-main">
+                  <div class="course-hour">
+                    {{ "%02d"|format(course.chosenHour) }}
+                    :
+                    {{ "%02d"|format(course.chosenMinute) }}
+                  </div>
+                  <div class="course-name">
+                    {{ course.course }}
+                  </div>
                 </div>
-                <div class="course-name">
-                  {{ course.course }}
-                </div>
-              </div>
 
-              {% if course.teacher is not null %}
-                <div class="teacher-name">
-                  <br/>
-                  {{ course.teacher }}
-                  <i class="fas fa-book"></i>
+                {% if course.teacher is not null %}
+                  <div class="teacher-name">
+                    <br/>
+                    {{ course.teacher }}
+                    <i class="fas fa-book"></i>
+                  </div>
+                {% endif %}
+                <br/>
+                <div class="duration-block">
+                  <i class="fas fa-hourglass-half"></i>
+                  {{ "%02d"|format(course.durationHour) }}
+                  h
+                  {{ "%02d"|format(course.durationMinute) }}
                 </div>
-              {% endif %}
-              <br/>
-              <div class="duration-block">
-                <i class="fas fa-hourglass-half"></i>
-                {{ "%02d"|format(course.durationHour) }}
-                h
-                {{ "%02d"|format(course.durationMinute) }}
               </div>
-            </div>
-          </li>
+            </li>
+
 
         {% endif %}
 
