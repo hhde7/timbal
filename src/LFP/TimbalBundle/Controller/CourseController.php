@@ -156,7 +156,7 @@ class CourseController extends Controller
      $em->remove($course);
      $em->flush();
 
-  
+
      //   // $content = $this
      //   //     ->get('templating')
      //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [

@@ -2,7 +2,7 @@ imports:
     - { resource:                     parameters.yml }
     - { resource:                     security.yml }
     - { resource:                     services.yml }
-    - { resource: "@LFPUserBundle/Resources/config/services.yml" }
+    - { resource:                     "@LFPUserBundle/Resources/config/services.yml" }
 
 
 
@@ -78,3 +78,17 @@ stof_doctrine_extensions:
     orm:
         default:
               sluggable:              true
+
+# Windows Configuration
+knp_snappy:
+    pdf:
+        enabled:                      true
+        binary:                       "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            encoding: UTF-8
+    image:
+        enabled:                      true
+        binary:                       "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
+        options:                      []
