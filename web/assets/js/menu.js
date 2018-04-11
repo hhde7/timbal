@@ -14,10 +14,16 @@ function menuTranslateX() {
 }
 
 function columnWidth() {
-  var column = $('.time-table');
-  var numberOfColumn = $('.course-day');
+  var column = document.getElementsByClassName('time-table');
+  // var column = $('.time-table');
+  var numberOfColumn = document.getElementsByClassName('course-day');
+  // var numberOfColumn = $('.course-day');
   var n = numberOfColumn.length;
-  column.css('width', 100 / n + '%');
+  for (var i = 0; i < column.length; i++) {
+    column[i].style.width = 100 / n + '%';
+    // column[i].setAttribute("class", "time-table");
+    // column[i].className += ' if-'+ n + '-column';
+  }
 }
 
 function dayColor() {

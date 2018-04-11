@@ -1,0 +1,97 @@
+body, h2 {
+  font-weight: 300 !important;
+  color: rgb(40, 40, 40);
+}
+
+h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 3px #ccc;
+  font-size: 2em;
+  padding: 0;
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 7px !important;
+}
+
+.fa-trash {
+  display: none !important;
+}
+
+.teacher-name {
+  top: 0;
+  right: 0;
+  padding: 5px 0 5px 5px;
+}
+
+.fa-hourglass-half {
+  padding: 5px 2px 5px 2px;
+}
+
+.teacher-name {
+  position: absolute !important;
+  top: -30px;
+  right: 0;
+  padding: 2px 5px 5px 5px !important;
+  margin-top: 10px !important;
+}
+
+.fa-book {
+  margin-left: 5px !important;
+}
+
+.time-table {
+  position: relative !important;
+  padding: 0 !important;
+  margin: -20px 0 0 0 !important;
+}
+
+.course-block, .course-day {
+  width: 100% !important;
+}
+
+.course-main {
+  margin-top: -15px;
+  font-weight: 300 !important;
+  color: rgb(40, 40, 40);
+}
+
+.course-hour, .course-name {
+  font-weight: 400 !important;
+}
+
+.course-day.monday {
+  background-color: rgba(173, 230, 39, 0.76) !important;
+}
+
+.course-day.tuesday {
+  background-color: rgba(12, 186, 255, 0.65) !important;
+}
+
+.course-day.wednesday {
+  background-color: rgba(14, 191, 109, 0.78) !important;
+}
+
+.course-day.thursday {
+  background-color: rgba(255, 81, 64, 0.72) !important;
+}
+
+.course-day.friday {
+  background-color: rgba(204, 20, 55, 0.68) !important;
+}
+
+.course-day.saturday {
+  background-color: rgba(102, 63, 158, 0.7) !important;
+}
+
+.course-day.sunday {
+  background-color: rgb(239, 190, 24) !important;
+}
+
+.fas {
+  color: rgb(100, 100, 100);
+}

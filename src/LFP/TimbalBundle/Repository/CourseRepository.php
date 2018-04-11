@@ -33,4 +33,13 @@ class CourseRepository extends \Doctrine\ORM\EntityRepository
 
         return $data;
     }
+
+    public function countDays($em, $currentUser)
+    {
+      $query = $em->createQuery('SELECT DISTINCT c.day FROM LFPTimbalBundle:Course c WHERE c.user = :user');
+      $query->setParameter('user', $currentUser->getId());
+      $numberOfDays = $query->getResult();
+
+      return $numberOfDays;
+    }
 }

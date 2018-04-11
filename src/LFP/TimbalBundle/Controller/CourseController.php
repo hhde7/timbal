@@ -174,45 +174,62 @@ class CourseController extends Controller
      */
     public function pdfAction(Request $request)
     {
-      // --------------------------REPEAT AAHHHHHH --------------------------
-      $repository = $this
+        // --------------------------REPEAT AAHHHHHH --------------------------
+        $repository = $this
           ->getDoctrine()
           ->getManager()
           ->getRepository('LFPTimbalBundle:Course')
           ;
 
-      $currentUser = $this->getUser();
+        $currentUser = $this->getUser();
 
-      if (isset($currentUser)) {
-          // Gets current user courses according his id
-          $userCourses = $repository->findBy(array('user' => $currentUser->getId()));
-          $em = $this
+        if (isset($currentUser)) {
+            // Gets current user courses according his id
+            $userCourses = $repository->findBy(array('user' => $currentUser->getId()));
+            $em = $this
               ->getDoctrine()
               ->getManager()
               ;
-          $dayRanks = $repository->getDayRank($em, $currentUser);
-      } else {
-          $userCourses = 'User not logged';
-          $dayRanks = [];
-      }
-      //-----------------------------------------------------------------------
+            $dayRanks = $repository->getDayRank($em, $currentUser);
+        } else {
+            $userCourses = 'User not logged';
+            $dayRanks = [];
+        }
+        //-----------------------------------------------------------------------
         $snappyStyles = true;
         $snappy = $this->get("knp_snappy.pdf");
         $snappy->setOption("encoding", "UTF-8");
-        //rest of the code to generate pdf here
+
+        // ------check numbers of column to resize them properly in pdf view----//
+        $numberOfColumns = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('LFPTimbalBundle:Course')
+            ->countDays($em, $currentUser)
+        ;
+        // ---------------------------------------------------------------------//
 
         $html = $this->renderView("LFPTimbalBundle:Course:menu.html.twig", array(
           "dayRanks" => $dayRanks,
           "userCourses" => $userCourses,
-          "snappyStyles" => $snappyStyles
+          "snappyStyles" => $snappyStyles,
+          "numberOfColumns" => $numberOfColumns
         ));
 
         $filename = ucfirst($currentUser->getUsername()) . "'s Timbal";
 
         return new Response(
-            $snappy->getOutputFromHtml($html,
-                                   array('orientation'=>'Landscape',
-                                         'default-header'=>false) ),
+            $snappy->getOutputFromHtml($html, array(
+                                          'orientation'=>'Landscape',
+                                          'default-header'=>false,
+                                          'enable-javascript' => true,
+                                          'no-stop-slow-scripts' => true,
+                                          'javascript-delay' => 1000,
+                                          'margin-top'    => 0,
+                                          'margin-right'  => 5,
+                                          'margin-bottom' => 7,
+                                          'margin-left'   => 5,)
+            ),
             200,
             array(
                 'Content-Type' => 'application/pdf',
