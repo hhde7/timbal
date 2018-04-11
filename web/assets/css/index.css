@@ -16,9 +16,11 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 0;
   margin: 0;
+  -webkit-transition: all ease 1s;
   transition: all ease 1s;
 }
 
@@ -36,7 +38,8 @@ h1 {
 dd {
   color: grey;
   font-size: 2em;
-  transform: translateX(120px);
+  -webkit-transform: translateX(120px);
+          transform: translateX(120px);
 }
 
 
@@ -47,16 +50,20 @@ dd {
   text-align: left;
   padding: 5px;
   width: 100%;
-  transform: translate(-100%, -25px);
+  -webkit-transform: translate(-100%, -25px);
+          transform: translate(-100%, -25px);
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   height: 100%;
   background-color: rgb(250, 250, 249);
-  box-shadow: 2px 2px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px #ccc;
+          box-shadow: 2px 2px 3px #ccc;
 }
 
 #menu-call {
   background-color: rgb(250, 250, 249);
-  box-shadow: 2px 2px 3px #ccc;
+  -webkit-box-shadow: 2px 2px 3px #ccc;
+          box-shadow: 2px 2px 3px #ccc;
   border-radius: 0 0 5px 0;
   position: absolute;
   padding: 5px;
@@ -74,9 +81,11 @@ footer {
   width: 200px;
   background-color: rgb(250, 250, 249);
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border-radius: 5px 5px 0 0;
-  box-shadow: 0px 0px 3px #bbb;
+  -webkit-box-shadow: 0px 0px 3px #bbb;
+          box-shadow: 0px 0px 3px #bbb;
   height: 25px;
 }
 
@@ -84,5 +93,6 @@ footer p {
   line-height: 0px;
   text-align: center;
   color: grey;
-  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
