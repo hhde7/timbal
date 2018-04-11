@@ -7,10 +7,17 @@ function menuTranslateX() {
   if (direction === 'right') {
     menu.style.transform = "translate(0px, -25px)";
     direction = 'left';
-  } else {
+  } else if (direction === 'left') {
     menu.style.transform = "translate(-100%, -25px)";
     direction = 'right';
   }
+}
+
+function columnWidth() {
+  var column = $('.time-table');
+  var numberOfColumn = $('.course-day');
+  var n = numberOfColumn.length;
+  column.css('width', 100 / n + '%');
 }
 
 function dayColor() {
@@ -49,3 +56,4 @@ function dayColor() {
 }
 
 dayColor();
+columnWidth();

@@ -51,7 +51,7 @@ class SecurityController extends Controller
         }
 
 
-        var_dump($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'));
+        $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_ANONYMOUSLY');
         $user = new User();
 
         $form = $this

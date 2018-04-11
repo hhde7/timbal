@@ -1,23 +1,35 @@
-<!-- Sorts days by day_rank from 1 to 7 -->
-{% for dayRank in dayRanks | sort %}
+{% if snappyStyles is defined %}
+  définir une feuille de style spécifique
+  <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/new.css">
+  <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/index.css">
+  <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/menu.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="http://localhost/Symfony/web/assets/css/print.css">
+  {% if app.user.userName is defined %}
+    <h2>{{ app.user.userName|capitalize ~ "'\s Timbal" }}</h2>
+  {% endif %}
+{% endif %}
 
-  <!-- This boolean is used below for <h3> -->
-  {% set i = true %}
-  <div class="time-table">
+<div id="my-timbal">
+  <!-- Sorts days by day_rank from 1 to 7 -->
+  {% for dayRank in dayRanks | sort %}
 
-    <ul class="nav nav-pills nav-stacked">
-      <!-- Uses twig extension victorhaggqvist/Twig-sort-by-field -->
-      {% for course in userCourses | sortbyfield('courseTime') %}
+    <!-- This boolean is used below for <h3> -->
+    {% set i = true %}
+    <div class="time-table">
+      <ul class="nav nav-pills nav-stacked">
+        <!-- Uses twig extension victorhaggqvist/Twig-sort-by-field -->
+        {% for course in userCourses | sortbyfield('courseTime') %}
 
-        {% if dayRank.dayRank is same as(course.dayRank) %}
+          {% if dayRank.dayRank is same as(course.dayRank) %}
 
-          {% if i is same as(true) %}
-            <div>
-              <h3 class="course-day {{ course.day|lower }}" id="{{course.day ~ '-label'}}">{{ course.day }}</h3>
-            </div>
-            <!-- Day displayed once on the top of each <ul> -->
-            {% set i = false %}
-          {% endif %}
+            {% if i is same as(true) %}
+              <div>
+                <h3 class="course-day {{ course.day|lower }}" id="{{course.day ~ '-label'}}">{{ course.day }}</h3>
+              </div>
+              <!-- Day displayed once on the top of each <ul> -->
+              {% set i = false %}
+            {% endif %}
 
             <li class="course-block {{ course.day|lower ~ '-block'}} {{course.day|lower}}" id="{{ course.id}}">
               <div>
@@ -55,11 +67,11 @@
               </div>
             </li>
 
+          {% endif %}
 
-        {% endif %}
+        {% endfor %}
+      </ul>
 
-      {% endfor %}
-    </ul>
-
-  </div>
-{% endfor %}
+    </div>
+  {% endfor %}
+</div>

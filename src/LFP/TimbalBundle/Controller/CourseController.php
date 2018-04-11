@@ -69,10 +69,10 @@ class CourseController extends Controller
                 ->checkCoursesLimit($em, $currentUser, $chosenDay)
             ;
             foreach ($coursesByDay as $value) {
-              if ($value[1] > 5) {
-                $request->getSession()->getFlashBag()->add('notice', 'Maximum courses for ' . $course->getDay() . ' reached !' );
-                return $this->redirectToRoute('lfp_timbal_new');
-              }
+                if ($value[1] > 5) {
+                    $request->getSession()->getFlashBag()->add('notice', 'Maximum courses for ' . $course->getDay() . ' reached !');
+                    return $this->redirectToRoute('lfp_timbal_new');
+                }
             };
 
 
@@ -88,7 +88,7 @@ class CourseController extends Controller
             $em->persist($course);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', $course->getCourse() . ' added !' );
+            $request->getSession()->getFlashBag()->add('notice', $course->getCourse() . ' added !');
 
             return $this->redirectToRoute('lfp_timbal_new');
         }
@@ -104,7 +104,7 @@ class CourseController extends Controller
         return new Response($content);
     }
 
-    public function menuAction()
+    public function menuAction(Request $request)
     {
         $repository = $this
             ->getDoctrine()
@@ -143,30 +143,81 @@ class CourseController extends Controller
      * @Route("/delete/{id}", name="lfp_timbal_delete")
      *
      */
-   public function deleteAction(Request $request, $id)
-   {
-
-     $em = $this
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this
        ->getDoctrine()
        ->getManager()
      ;
 
-     $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
+        $course = $em->getRepository('LFPTimbalBundle:Course')->find($id);
 
-     $em->remove($course);
-     $em->flush();
+        $em->remove($course);
+        $em->flush();
 
 
-     //   // $content = $this
-     //   //     ->get('templating')
-     //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [
-     //   //         'text' => 'Timbal',
-     //   //         'caption' => 'Your TimeTable Maker',
-     //   //     ]);
-     //   // // NOTE: important
-     //   // // return $this->render('LFPTimbalBundle:Course:index.html.twig', [
-     //   //
-     //   // //   ] );
-       return new Response($id);
-     }
+        //   // $content = $this
+        //   //     ->get('templating')
+        //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [
+        //   //         'text' => 'Timbal',
+        //   //         'caption' => 'Your TimeTable Maker',
+        //   //     ]);
+        //   // // NOTE: important
+        //   // // return $this->render('LFPTimbalBundle:Course:index.html.twig', [
+        //   //
+        //   // //   ] );
+        return new Response($id);
+    }
+
+    /**
+     * @route("pdf", name="lfp_timbal_pdf")
+     */
+    public function pdfAction(Request $request)
+    {
+      // --------------------------REPEAT AAHHHHHH --------------------------
+      $repository = $this
+          ->getDoctrine()
+          ->getManager()
+          ->getRepository('LFPTimbalBundle:Course')
+          ;
+
+      $currentUser = $this->getUser();
+
+      if (isset($currentUser)) {
+          // Gets current user courses according his id
+          $userCourses = $repository->findBy(array('user' => $currentUser->getId()));
+          $em = $this
+              ->getDoctrine()
+              ->getManager()
+              ;
+          $dayRanks = $repository->getDayRank($em, $currentUser);
+      } else {
+          $userCourses = 'User not logged';
+          $dayRanks = [];
+      }
+      //-----------------------------------------------------------------------
+        $snappyStyles = true;
+        $snappy = $this->get("knp_snappy.pdf");
+        $snappy->setOption("encoding", "UTF-8");
+        //rest of the code to generate pdf here
+
+        $html = $this->renderView("LFPTimbalBundle:Course:menu.html.twig", array(
+          "dayRanks" => $dayRanks,
+          "userCourses" => $userCourses,
+          "snappyStyles" => $snappyStyles
+        ));
+
+        $filename = ucfirst($currentUser->getUsername()) . "'s Timbal";
+
+        return new Response(
+            $snappy->getOutputFromHtml($html,
+                                   array('orientation'=>'Landscape',
+                                         'default-header'=>false) ),
+            200,
+            array(
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="'.$filename.'.pdf"'
+            )
+          );
+    }
 }
