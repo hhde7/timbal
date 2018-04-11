@@ -42,7 +42,6 @@ twig:
     strict_variables:                 '%kernel.debug%'
     globals:
 
-
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -85,9 +84,9 @@ knp_snappy:
         enabled:                      true
         binary:                       "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
         options:
-            no-outline: true
-            page-size: LETTER
-            encoding: UTF-8
+            no-outline:               true
+            page-size:                LETTER
+            encoding:                 UTF-8
     image:
         enabled:                      true
         binary:                       "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""

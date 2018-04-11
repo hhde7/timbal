@@ -11,7 +11,8 @@
 
   {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="../.././../web/assets/css/new.css">
+    <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/new.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/Symfony/web/assets/css/print.css" media="print">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   {% endblock %}
   <div id="wrapper">
@@ -124,7 +125,7 @@
 
   {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="../.././../web/assets/js/new.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/new.js') }}"></script>
   {% endblock %}
 
 {% endblock %}
