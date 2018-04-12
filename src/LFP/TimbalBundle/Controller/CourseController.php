@@ -155,18 +155,35 @@ class CourseController extends Controller
         $em->remove($course);
         $em->flush();
 
-
-        //   // $content = $this
-        //   //     ->get('templating')
-        //   //     ->render('LFPTimbalBundle:Course:index.html.twig', [
-        //   //         'text' => 'Timbal',
-        //   //         'caption' => 'Your TimeTable Maker',
-        //   //     ]);
-        //   // // NOTE: important
-        //   // // return $this->render('LFPTimbalBundle:Course:index.html.twig', [
-        //   //
-        //   // //   ] );
         return new Response($id);
+    }
+
+    /**
+     * @Route("/deleteAll", name="lfp_timbal_deleteAll")
+     *
+     */
+    public function deleteAllAction(Request $request)
+    {
+        $em = $this
+          ->getDoctrine()
+          ->getManager()
+        ;
+
+        $currentUser = $this->getUser();
+
+        $repository = $this
+         ->getDoctrine()
+         ->getManager()
+         ->getRepository('LFPTimbalBundle:Course')
+
+       ;
+        $userCourses = $repository->findBy(array('user' => $currentUser->getId()));
+        foreach ($userCourses as $userCourse) {
+            $em->remove($userCourse);
+        }
+        $em->flush();
+        
+        return new Response($request);
     }
 
     /**
@@ -219,7 +236,9 @@ class CourseController extends Controller
         $filename = ucfirst($currentUser->getUsername()) . "'s Timbal";
 
         return new Response(
-            $snappy->getOutputFromHtml($html, array(
+            $snappy->getOutputFromHtml(
+                $html,
+                array(
                                           'orientation'=>'Landscape',
                                           'default-header'=>false,
                                           'enable-javascript' => true,

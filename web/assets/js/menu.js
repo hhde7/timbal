@@ -1,7 +1,10 @@
 var menu = document.getElementById('menu');
+var slideCall = document.getElementsByClassName('slide-call');
 var direction = "right";
 
-menu.addEventListener("click", menuTranslateX);
+for (var i = 0; i < slideCall.length; i++) {
+  slideCall[i].addEventListener("click", menuTranslateX);
+}
 
 function menuTranslateX() {
   if (direction === 'right') {
@@ -15,14 +18,10 @@ function menuTranslateX() {
 
 function columnWidth() {
   var column = document.getElementsByClassName('time-table');
-  // var column = $('.time-table');
   var numberOfColumn = document.getElementsByClassName('course-day');
-  // var numberOfColumn = $('.course-day');
   var n = numberOfColumn.length;
   for (var i = 0; i < column.length; i++) {
     column[i].style.width = 100 / n + '%';
-    // column[i].setAttribute("class", "time-table");
-    // column[i].className += ' if-'+ n + '-column';
   }
 }
 

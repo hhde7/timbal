@@ -16,26 +16,24 @@
   <body>
 
     <div id="menu">
-      <div id="menu-call">&#8801;</div>
       {% if app.user.userName is defined %}
+      <div class="slide-call" id="menu-call" title="{{ app.user.userName|capitalize ~ "'\s Timbal" }}">&#8801;</div>
+      <div class="slide-call" id="clock-call" title="Back to the clock">&#8801;</div>
         <h2>{{ app.user.userName|capitalize ~ "'\s Timbal" }}</h2>
       {% endif %}
       <nav id="timetable-options">
         <ul>
-          <!-- <li>
-            <a href="{{ path('lfp_timbal_home') }}">Home</a>
-          </li> -->
           <li>
-            <a href="javascript:printTimbal()">Print</a>
+            <a href="javascript:printTimbal()">PRINT</a>
           </li>
           <li>
-            <a href="{{ path('lfp_timbal_pdf') }}">Pdf</a>
+            <a href="{{ path('lfp_timbal_pdf') }}">SAVE IN PDF</a>
+          </li>
+            <button id="delete-all" type="button" name="button">DELETE ALL</button>
+          <li>
           </li>
           <li>
-            <a href="{{ path('lfp_timbal_home') }}">Delete</a>
-          </li>
-          <li>
-            <a href="{{ path('logout') }}">Logout</a>
+            <a href="{{ path('logout') }}">LOGOUT</a>
           </li>
         </ul>
       </nav>
@@ -52,7 +50,7 @@
     </footer>
 
     {% block javascripts %}
-    
+
     {% endblock %}
 
   </body>

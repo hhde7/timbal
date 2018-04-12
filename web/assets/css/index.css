@@ -17,7 +17,7 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   padding: 0;
   margin: 0;
   -webkit-transition: all ease 1s;
@@ -39,9 +39,8 @@ dd {
   color: grey;
   font-size: 2em;
   -webkit-transform: translateX(120px);
-          transform: translateX(120px);
+  transform: translateX(120px);
 }
-
 
 #menu {
   display: none;
@@ -51,28 +50,48 @@ dd {
   padding: 5px;
   width: 100%;
   -webkit-transform: translate(-100%, -25px);
-          transform: translate(-100%, -25px);
+  transform: translate(-100%, -25px);
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   height: 100%;
   background-color: rgb(250, 250, 249);
   -webkit-box-shadow: 2px 2px 3px #ccc;
-          box-shadow: 2px 2px 3px #ccc;
+  box-shadow: 2px 2px 3px #ccc;
 }
 
-#menu-call {
+#menu-call, #clock-call {
   background-color: rgb(250, 250, 249);
   -webkit-box-shadow: 2px 2px 3px #ccc;
-          box-shadow: 2px 2px 3px #ccc;
+  box-shadow: 2px 2px 3px #ccc;
   border-radius: 0 0 5px 0;
+  color: #327f9e;
+  right: 0;
+  transform: translateX(100%);
+  margin-left: 0;
   position: absolute;
   padding: 5px;
-  color: #327f9e;
   font-size: 2em;
-  right: 0;
-  margin-right: -29px;
-  margin-left: 0;
+  transition: all ease 0.3s;
   cursor: pointer;
+}
+
+#menu-call:hover {
+  background-color: grey;
+  color: white !important;
+}
+
+#clock-call {
+  background-color: white;
+  right: 100%;
+  transform: translateX(100%);
+  margin-left: 0;
+  font-weight: 300 !important;
+  color: rgb(90, 90, 90) !important;
+}
+
+#clock-call:hover {
+  background-color: #327f9e;
+  color: white !important;
 }
 
 footer {
@@ -82,10 +101,10 @@ footer {
   background-color: rgb(250, 250, 249);
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   border-radius: 5px 5px 0 0;
   -webkit-box-shadow: 0px 0px 3px #bbb;
-          box-shadow: 0px 0px 3px #bbb;
+  box-shadow: 0px 0px 3px #bbb;
   height: 25px;
 }
 
@@ -94,5 +113,5 @@ footer p {
   text-align: center;
   color: grey;
   -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+  transform: translateY(-2px);
 }

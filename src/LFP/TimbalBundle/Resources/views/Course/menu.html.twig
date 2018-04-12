@@ -1,33 +1,30 @@
 {% if snappyStyles is defined %}
-  <!-- <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/new.css"> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/index.css">
   <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/menu.css">
   <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/pdf.css">
   <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400" rel="stylesheet">
-  {% if numberOfColumns|length is same as(1) %}
+  {% if numberOfColumns | length is same as(1) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/1-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(2) %}
+  {% if numberOfColumns | length is same as(2) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/2-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(3) %}
+  {% if numberOfColumns | length is same as(3) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/3-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(4) %}
+  {% if numberOfColumns | length is same as(4) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/4-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(5) %}
+  {% if numberOfColumns | length is same as(5) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/5-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(6) %}
+  {% if numberOfColumns | length is same as(6) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/6-column.css">
   {% endif %}
-  {% if numberOfColumns|length is same as(7) %}
+  {% if numberOfColumns | length is same as(7) %}
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/7-column.css">
   {% endif %}
-
-  <!-- <link rel="stylesheet" type="text/css" href="http://localhost/Symfony/web/assets/css/print.css"> -->
   {% if app.user.userName is defined %}
     <h2>{{ app.user.userName|capitalize ~ "'\s Timbal" }}</h2>
   {% endif %}
@@ -91,7 +88,9 @@
             </li>
 
           {% endif %}
-
+          {% if courses is defined %}
+            {{ courses }}
+          {% endif %}
         {% endfor %}
       </ul>
 
