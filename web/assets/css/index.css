@@ -66,11 +66,13 @@ dd {
   border-radius: 0 0 5px 0;
   color: #327f9e;
   right: 0;
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   margin-left: 0;
   position: absolute;
   padding: 5px;
   font-size: 2em;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   cursor: pointer;
 }
@@ -83,7 +85,8 @@ dd {
 #clock-call {
   background-color: white;
   right: 100%;
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   margin-left: 0;
   font-weight: 300 !important;
   color: rgb(90, 90, 90) !important;

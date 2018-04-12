@@ -27,7 +27,7 @@ body {
 
 .fa-arrow-left {
   -webkit-transform: translate(-5px, -1px);
-          transform: translate(-5px, -1px)
+  transform: translate(-5px, -1px)
 }
 
 h1 {
@@ -38,7 +38,7 @@ h1 {
   font-size: 4em;
   padding: 0;
   -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
   margin-top: 20px;
   margin-bottom: 35px;
 }
@@ -51,7 +51,7 @@ h2 {
   font-size: 2em;
   padding: 0;
   -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
   margin-top: 20px;
   margin-bottom: 35px;
 }
@@ -85,7 +85,7 @@ input {
   font-size: 2.1em !important;
   text-align: center;
   -webkit-transform: translate(0, -210%);
-          transform: translate(0, -210%);
+  transform: translate(0, -210%);
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   width: 180px;
@@ -94,14 +94,7 @@ input {
 #chosen-time {
   display: none;
   color: grey;
-  /* position: relative; */
 }
-
-/* #chosen-hour, #chosen-minute {
-  text-align: center;
-  width: 54px;
-  transform: translate(134px, 89px);
-} */
 
 #lfp_timbalbundle_course_chosenHour {
   position: relative;
@@ -111,8 +104,8 @@ input {
   left: 50%;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
-  -webkit-transform: translate(-65%, -127px);
-          transform: translate(-65%, -127px);
+  transform: translate(-65%, -127px);
+  -webkit-transform: translate(-65%, -135px);
   font-size: 2em;
   width: 173px;
 }
@@ -126,7 +119,7 @@ input {
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   -webkit-transform: translate(-3%, -354%);
-          transform: translate(-3%, -354%);
+  transform: translate(-3%, -354%);
   font-size: 2em;
   width: 56px;
 }
@@ -151,7 +144,7 @@ font-size: 3em; */
   left: 50%;
   width: 92px;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   margin: auto;
 }
 
@@ -162,7 +155,7 @@ font-size: 3em; */
   background-color: rgba(0, 0, 0, 0);
   border: none;
   -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 /* //   // */
@@ -170,7 +163,7 @@ font-size: 3em; */
 #course-duration {
   display: none;
   -webkit-transform: translateY(-17px);
-          transform: translateY(-17px);
+  transform: translateY(-17px);
 }
 
 #chosen-duration p {
@@ -191,12 +184,12 @@ font-size: 3em; */
 
 #lfp_timbalbundle_course_durationHour {
   -webkit-transform: translate(-116%, -466%);
-          transform: translate(-116%, -466%);
+  transform: translate(-116%, -466%);
 }
 
 #lfp_timbalbundle_course_durationMinute {
   -webkit-transform: translate(24%, -566%);
-          transform: translate(24%, -566%);
+  transform: translate(24%, -566%);
 }
 
 #duration-separator {
@@ -214,7 +207,7 @@ font-size: 3em; */
   width: 300px;
   margin: auto;
   -webkit-transform: scale(1.5) translateY(55px);
-          transform: scale(1.5) translateY(55px);
+  transform: scale(1.5) translateY(55px);
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -239,12 +232,12 @@ font-size: 3em; */
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .hour-pm {
   -webkit-box-shadow: 0 0 3px 0 #696363;
-          box-shadow: 0 0 3px 0 #696363;
+  box-shadow: 0 0 3px 0 #696363;
 }
 
 .hour-am {
@@ -254,7 +247,7 @@ font-size: 3em; */
   /* line-height: 0; */
   background-color: #ef8293;
   -webkit-box-shadow: 0 0 1px 0 #696363;
-          box-shadow: 0 0 1px 0 #696363;
+  box-shadow: 0 0 1px 0 #696363;
   text-shadow: 0px 0px 1px black;
   /*opacity: 0.9;*/
 }
@@ -299,14 +292,14 @@ font-size: 3em; */
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border: 1px dotted grey;
   border-radius: 50%;
   width: 250px;
   height: 250px;
   background-color: grey;
   -webkit-box-shadow: 0 0 1px 2px #696363;
-          box-shadow: 0 0 1px 2px #696363;
+  box-shadow: 0 0 1px 2px #696363;
 }
 
 #circle2 {
@@ -315,13 +308,13 @@ font-size: 3em; */
   top: -34%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   width: 163px;
   height: 163px;
   background-color: lightgrey;
   -webkit-box-shadow: 0 0 5px 2px #696363;
-          box-shadow: 0 0 5px 2px #696363;
+  box-shadow: 0 0 5px 2px #696363;
 }
 
 #choice {
@@ -329,7 +322,7 @@ font-size: 3em; */
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #hour-00 {
@@ -464,27 +457,27 @@ font-size: 3em; */
 
 #angle-05 {
   -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 
 #angle-10 {
   -webkit-transform: rotate(60deg);
-          transform: rotate(60deg);
+  transform: rotate(60deg);
 }
 
 #angle-15 {
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 #angle-20 {
   -webkit-transform: rotate(120deg);
-          transform: rotate(120deg);
+  transform: rotate(120deg);
 }
 
 #angle-25 {
   -webkit-transform: rotate(150deg);
-          transform: rotate(150deg);
+  transform: rotate(150deg);
 }
 
 #duration {}
@@ -494,7 +487,7 @@ font-size: 3em; */
   top: -100%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background-color: white;
   width: 30px;
   height: 30px;
@@ -573,19 +566,22 @@ font-size: 3em; */
 #hider {}
 
 #reset {
-  position: relative;
   top: 250px;
 }
 
 #under-clock {
-  position: fixed;
+  position: absolute;
+  top: 698px;
   bottom: 80px;
-  width: 100%;
+  width: 632px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 #under-clock label {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 8px;
+  margin-right: 14px;
 }
 
 #under-clock input, #under-clock select {
@@ -596,9 +592,34 @@ font-size: 3em; */
   width: 200px;
 }
 
+#under-clock select {
+  margin-right: 11px;
+  width: 203px;
+}
+
+#lfp_timbalbundle_course_building {
+  margin-left: -5px;
+}
+
+.inputs {
+  width: 314px;
+  padding: 0;
+  margin: 0;
+}
+
+.two-inputs {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#lfp_timbalbundle_course_course {
+  width: 200px;
+}
+
 .save {
   -webkit-transform: translate(0, 69%);
-          transform: translate(0, 69%);
+  transform: translate(0, 69%);
   color: white !important;
   font-weight: normal;
   font-size: 1em;

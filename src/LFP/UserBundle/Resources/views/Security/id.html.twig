@@ -8,7 +8,7 @@
 {% block stylesheet %}
   {{ parent() }}
   <!-- NOTE yarn gestion de js et css -->
-  <link rel="stylesheet" href="../.././../web/assets/css/id.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/id.css') }}">
 {% endblock %}
 
 {% block lfptimbal_body %}
@@ -19,23 +19,24 @@
     {{ form_errors(form) }}
 
     <h1>Create a user Id</h1>
-    <div>
+    <div class="inputs">
       {{ form_label(form.username) }}
       {{ form_errors(form.username) }}
       {{ form_widget(form.username) }}
     </div>
-    <div>
-      {{ form_label(form.password) }}
-      {{ form_errors(form.password) }}
-      {{ form_widget(form.password) }}
+    <div class="inputs">
+      {{ form_row(form.password) }}
+      {{ form_row(form.password.first) }}
+      {{ form_row(form.password.second) }}
+  
     </div>
-    <div>
+    <div class="inputs">
       {{ form_label(form.email) }}
       {{ form_errors(form.email) }}
       {{ form_widget(form.email) }}
     </div>
     <div>
-      {{ form_widget(form.save, {'attr': {'class': 'save'}}) }}
+      {{ form_widget(form.save, {'attr': {'class': 'save id-save'}}) }}
     </div>
     {{ form_rest(form) }}
 

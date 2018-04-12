@@ -2,12 +2,14 @@
   position: absolute;
   top: 10px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 a {
   text-decoration: none;
   color: grey;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -23,10 +25,12 @@ a:hover, #delete-all:hover {
   border: none;
   background-color: rgb(250, 250, 249);
   outline: none;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
   padding: 0;
   margin-left: 16px;
-  transform: translateX(16px);
+  -webkit-transform: translateX(16px);
+          transform: translateX(16px);
 }
 
 nav ul li {
@@ -35,7 +39,8 @@ nav ul li {
 }
 
 #menu h2 {
-  transform: translateY(20px);
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
   text-align: center;
   font-weight: 300 !important;
   color: rgb(90, 90, 90) !important;
@@ -155,6 +160,7 @@ nav ul li {
 .btn-default {
   background-color: #327f9e !important;
   color: #c7c7c7 !important;
+  -webkit-transition: all ease 0.3s !important;
   transition: all ease 0.3s !important;
 }
 

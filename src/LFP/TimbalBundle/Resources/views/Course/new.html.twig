@@ -11,6 +11,7 @@
 
   {% block stylesheet %}
     {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
     <link rel="stylesheet" href="http://localhost/Symfony/web/assets/css/new.css">
     <link rel="stylesheet" type="text/css" href="http://localhost/Symfony/web/assets/css/print.css" media="print">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
@@ -92,31 +93,35 @@
 
   </div>
   <div id="under-clock">
-    <div id="what">
+    <div class="two-inputs">
 
-      {{ form_label(form.teacher) }}
-      {{ form_errors(form.teacher) }}
-      {{ form_widget(form.teacher, {'attr': {'placeholder':'Optional'}}) }}
-
-      {{ form_label(form.course) }}
-      {{ form_errors(form.course) }}
-      {{ form_widget(form.course) }}
-
-
+      <div class="inputs">
+        {{ form_label(form.course) }}
+        {{ form_errors(form.course) }}
+        {{ form_widget(form.course) }}
+      </div>
+      <div class="inputs">
+        {{ form_label(form.room) }}
+        {{ form_errors(form.room) }}
+        {{ form_widget(form.room, {'attr': {'placeholder':'Room'}}) }}
+      </div>
     </div>
-    <div id="where">
+    <div class="two-inputs">
 
-      {{ form_label(form.building) }}
-      {{ form_errors(form.building) }}
-      {{ form_widget(form.building, {'attr': {'placeholder':'Optional'}}) }}
-
-      {{ form_label(form.room) }}
-      {{ form_errors(form.room) }}
-      {{ form_widget(form.room, {'attr': {'placeholder':'Room'}}) }}
+      <div class="inputs">
+        {{ form_label(form.building) }}
+        {{ form_errors(form.building) }}
+        {{ form_widget(form.building, {'attr': {'placeholder':'Optional'}}) }}
+      </div>
+      <div class="inputs">
+        {{ form_label(form.teacher) }}
+        {{ form_errors(form.teacher) }}
+        {{ form_widget(form.teacher, {'attr': {'placeholder':'Optional'}}) }}
+      </div>
 
     </div>
     <div>
-      {{ form_widget(form.save, { 'label': 'Add this course' , 'attr': {'class': 'save', 'title': 'Fill time first', 'disabled': 'disabled'}}) }}
+      {{ form_widget(form.save, { 'label': 'Add this course' , 'attr': {'class': 'save', 'title': 'Set time first', 'disabled': 'disabled'}}) }}
     </div>
   </div>
   {{ form_rest(form) }}
@@ -124,6 +129,7 @@
   {{ form_end(form) }}
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
   <script type="text/javascript" src="http://localhost/Symfony/web/assets/js/deleteCourse.js"></script>
   <script type="text/javascript" src="{{ asset('assets/js/deleteAllCourses.js') }}"></script>

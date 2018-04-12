@@ -5,7 +5,7 @@
 {% block body %}
   {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="../.././../web/assets/css/id.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/id.css') }}">
   {% endblock %}
   {# S'il y a une erreur, on l'affiche dans un joli cadre #}
   {% if error %}
@@ -15,16 +15,17 @@
     {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
     <form action="{{ path('login_check') }}" method="post">
       <h1>Welcome</h1>
-      <div>
-        <label for="username">Username :</label>
+      <div class="inputs">
+        <label id="username-label" for="username">Username</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
       </div>
-      <div>
-        <label for="password">Password :</label>
+      <div class="inputs">
+        <label  id="password-label" for="password">Password</label>
         <input type="password" id="password" name="_password"/>
+        <p><a id="create-account" href="id">Create my Timbal account</a><p>
       </div>
       <br/>
-      <input class="save" type="submit" value="Connexion"/>
+      <input class="save" type="submit" value="Enter"/>
     </form>
   </div>
 
