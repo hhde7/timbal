@@ -26,8 +26,7 @@ a:hover, #delete-all:hover {
   transition: all ease 0.3s;
   padding: 0;
   margin-left: 16px;
-  margin-right: -16px;
-
+  transform: translateX(16px);
 }
 
 nav ul li {
@@ -141,4 +140,25 @@ nav ul li {
 
 .sunday-block {
   background-color: rgba(239, 190, 24, 0.15);
+}
+
+.jconfirm-box {
+  font-family: 'Yanone Kaffeesatz', sans-serif !important;
+  background-color: #c7c7c7 !important;
+  color: #3e3e3e !important;
+}
+
+.jconfirm-buttons {
+  width: 100%;
+}
+
+.btn-default {
+  background-color: #327f9e !important;
+  color: #c7c7c7 !important;
+  transition: all ease 0.3s !important;
+}
+
+.btn-default:hover {
+  background-color: white !important;
+  color: #327f9e !important;
 }
