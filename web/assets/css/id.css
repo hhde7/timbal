@@ -48,27 +48,26 @@ input {
 }
 
 .inputs {
-  width: 455pxcreate
-  -webkit-transform: translate(-62px, 26px);
-          transform: translate(-62px, 26px);
+  width: 455px;
+   -webkit-transform: translate(-62px, 26px);
+  transform: translate(-62px, 26px);
 }
 
 #create-account {
   position: relative;
-      /* right: 36px !important; */
-      top: -8px;
-      left: 130px;
+  /* right: 36px !important; */
+  top: -8px;
+  left: 130px;
 }
-
 
 #lfp_timbalbundle_course_password_first {
   -webkit-transform: translateX(4px);
-          transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 #lfp_timbalbundle_course_email {
   -webkit-transform: translateX(24px);
-          transform: translateX(24px);
+  transform: translateX(24px);
 }
 
 .save {
@@ -93,6 +92,26 @@ input {
   border: 1px solid grey !important;
 }
 
-.id-save{
-    margin-top: 81px;
+.id-save {
+  margin-top: 81px;
+}
+
+.alert-danger, ul {
+  color: white;
+  background-color: #b74153;
+  border-radius: 9px;
+  padding: 8px 13px 6px;
+  margin-top: 13px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+ul {
+  position: absolute;
+  margin-top: 23px;
+  list-style: none;
+  top: -415px;
+  left: 92px;
 }
