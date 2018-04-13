@@ -149,8 +149,9 @@ nav ul li {
 
 .jconfirm-box {
   font-family: 'Yanone Kaffeesatz', sans-serif !important;
-  background-color: #c7c7c7 !important;
+background-color: #f3f3f3 !important;
   color: #3e3e3e !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.47) !important;
 }
 
 .jconfirm-buttons {
@@ -159,7 +160,7 @@ nav ul li {
 
 .btn-default {
   background-color: #327f9e !important;
-  color: #c7c7c7 !important;
+  color: white !important;
   -webkit-transition: all ease 0.3s !important;
   transition: all ease 0.3s !important;
 }

@@ -32,7 +32,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(name="password", type="string", length=60)
      * @Assert\Length(
-     *     min=10,
+     *     min=5,
      *     max=60,
      *     minMessage = "Username must be at least {{ limit }} characters long",
      *     maxMessage = "Username must be at least {{ limit }} characters long"

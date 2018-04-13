@@ -11,7 +11,7 @@ var deleteAllProcess = {
           url = "deleteAll";
           deleteAllProcess.ajax(myTimbal, url);
         },
-        NOOOOO: function() {
+        NOPE: function() {
           $.alert('CANCELED !');
         }
       }

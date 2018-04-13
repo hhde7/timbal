@@ -182,14 +182,14 @@ class CourseController extends Controller
             $em->remove($userCourse);
         }
         $em->flush();
-        
+
         return new Response($request);
     }
 
     /**
-     * @route("pdf", name="lfp_timbal_pdf")
+     * @route("/pdf", name="lfp_timbal_pdf")
      */
-    public function pdfAction(Request $request)
+    public function pdfAction()
     {
         // --------------------------REPEAT AAHHHHHH --------------------------
         $repository = $this
