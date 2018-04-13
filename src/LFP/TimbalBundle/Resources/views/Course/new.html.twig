@@ -70,39 +70,48 @@
 
   {{ form_errors(form) }}
 
+  <div class="errors-box">
+    {% if errors.course | length > 0 %}
+      <p id="course-error"><i class="fas fa-exclamation-triangle"></i>{{ ' COURSE ' ~ errors.course }}</p>
+    {% endif %}
+    {% if errors.room | length > 0 %}
+      <p id="room-error"><i class="fas fa-exclamation-triangle"></i>{{ ' ROOM '~ errors.room }}</p>
+    {% endif %}
+    {% if errors.building | length > 0 %}
+      <p id="building-error"><i class="fas fa-exclamation-triangle"></i>{{ ' BUILDING ' ~ errors.building }}</p>
+    {% endif %}
+    {% if errors.teacher | length > 0 %}
+      <p id="teacher-error"><i class="fas fa-exclamation-triangle"></i>{{ ' TEACHER ' ~ errors.teacher }}</p>
+    {% endif %}
+  </div>
+
   <div id="when">
 
-    {{ form_errors(form.day) }}
     {{ form_widget(form.day, { 'attr': {'readonly': 'readonly', 'required': 'required', 'value': 'Day ?'}}) }}
 
     <div id="chosen-time">
 
-      {{ form_errors(form.chosenHour) }}
       {{ form_widget(form.chosenHour, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
 
-      {{ form_errors(form.chosenMinute) }}
       {{ form_widget(form.chosenMinute, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
 
     </div>
 
-    {{ form_errors(form.durationHour) }}
     {{ form_widget(form.durationHour, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
 
-    {{ form_errors(form.durationMinute) }}
     {{ form_widget(form.durationMinute, {'attr': {'readonly': 'readonly', 'required': 'required'}}) }}
 
   </div>
   <div id="under-clock">
+
     <div class="two-inputs">
 
       <div class="inputs">
         {{ form_label(form.course) }}
-        {{ form_errors(form.course) }}
         {{ form_widget(form.course) }}
       </div>
       <div class="inputs">
         {{ form_label(form.room) }}
-        {{ form_errors(form.room) }}
         {{ form_widget(form.room, {'attr': {'placeholder':'Room'}}) }}
       </div>
     </div>
@@ -110,12 +119,10 @@
 
       <div class="inputs">
         {{ form_label(form.building) }}
-        {{ form_errors(form.building) }}
         {{ form_widget(form.building, {'attr': {'placeholder':'Optional'}}) }}
       </div>
       <div class="inputs">
         {{ form_label(form.teacher) }}
-        {{ form_errors(form.teacher) }}
         {{ form_widget(form.teacher, {'attr': {'placeholder':'Optional'}}) }}
       </div>
 
@@ -134,7 +141,6 @@
   <script type="text/javascript" src="http://localhost/Symfony/web/assets/js/deleteCourse.js"></script>
   <script type="text/javascript" src="{{ asset('assets/js/deleteAllCourses.js') }}"></script>
   <script type="text/javascript" src="{{ asset('assets/js/new.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('assets/js/customErrors.js') }}"></script>
   <script type="text/javascript" src="http://localhost/Symfony/web/assets/js/printTimbal.js"></script>
   <script type="text/javascript" src="http://localhost/Symfony/web/assets/js/menu.js"></script>
 

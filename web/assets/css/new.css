@@ -637,21 +637,27 @@ input {
   border: 1px solid grey !important;
 }
 
-#under-clock ul {
-  /* position: absolute; */
-  margin-top: 23px;
-  list-style: none;
-  top: -415px;
-  left: 92px;
-  color: white;
-  background-color: #b74153;
+.errors-box {
+  float: left;
+  top: -5px;
+  margin-left: 47px;
+  font-size: 10px;
+  text-align: left;
+  position: absolute !important;
+}
+
+.errors-box p {
+  font-size: 22px;
+  color: #b90303;
+  background-color: #ffce28;
   border-radius: 9px;
   padding: 8px 13px 6px;
   margin-top: 13px;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  width: 285px;
+}
+
+.fa-exclamation-triangle {
+  font-size: 22px;
 }
 
 li {

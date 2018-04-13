@@ -89,8 +89,15 @@ class CourseController extends Controller
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', $course->getCourse() . ' added !');
-
+          $errors = array();
             return $this->redirectToRoute('lfp_timbal_new');
+
+        } else {
+            $errors = array();
+            foreach ($form as $fieldName => $formField) {
+                // each field has an array of errors
+                $errors[$fieldName] = $formField->getErrors();
+            }
         }
 
 
@@ -98,7 +105,7 @@ class CourseController extends Controller
             ->get('templating')
             ->render('LFPTimbalBundle:Course:new.html.twig', array(
                 'form' => $form->createView(), 'action1' => 'Day & Time', 'action2' => 'Teacher',
-                'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room'))
+                'action3' => 'Course', 'action4' => 'Building', 'action5' => 'Room', 'errors' => $errors))
             ;
 
         return new Response($content);
