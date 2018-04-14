@@ -1,3 +1,5 @@
+
+
 #menu {
   display: block;
 }
@@ -104,7 +106,6 @@ input {
   left: 50%;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
-  -webkit-transform: translate(-65%, -135px);
   transform: translate(-65%, -127px);
   font-size: 2em;
   width: 173px;
@@ -677,6 +678,14 @@ footer p {
   font-size: 1em;
 }
 
+@media screen and (min-width: 681px) and (max-width: 769px) {
+  #notification {
+    padding: 0 7px !important;
+    margin-top: -7px !important;
+    font-size: 8px !important;
+  }
+}
+
 @media screen and (min-width: 401px) and (max-width: 680px) {
   h1 {
     color: #327f9e;
@@ -719,11 +728,11 @@ footer p {
   }
   #under-clock {
     position: absolute;
-    top: 538px;
-    bottom: 0;
+    top: 524px;
+    /* bottom: 0; */
     width: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%; */
+    transform: translateX(-123px);
   }
   #under-clock select {
     margin-right: 11px;
@@ -737,7 +746,7 @@ footer p {
     transform: translateX(-39px);
   }
   #lfp_timbalbundle_course_course {
-    transform: translateX(9px);
+    transform: translateX(7px);
   }
   #lfp_timbalbundle_course_room {
     transform: translateX(6px);
@@ -758,7 +767,7 @@ footer p {
     transform: translate(56px, 90px);
   }
   .save {
-    transform: translate(0, -21%);
+    transform: translate(-35px, 10%);
     font-weight: normal;
     font-size: 0.8em;
   }
@@ -772,5 +781,407 @@ footer p {
   }
   #notification p {
     padding: 6px 10px 4px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  h1 {
+    color: #327f9e;
+    font-size: 3em;
+    transform: translateY(10px);
+  }
+  label {
+    font-size: 1.2em !important;
+    margin-bottom: 15px;
+    margin-top: -24px;
+  }
+  #days-label {
+    display: none;
+  }
+  #days {
+    transform: scale(0.9) translateY(-10px);
+  }
+  .day {
+    width: 38px;
+    height: 27px;
+    font-size: 20px;
+    margin-top: -8px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  #clock-module {
+    transform: scale(1) translateY(-10px);
+  }
+  #lfp_timbalbundle_course_day {
+    font-size: 1.4em !important;
+    transform: translate(0, -624%);
+    width: 135px;
+  }
+  #lfp_timbalbundle_course_chosenHour {
+    font-size: 2em !important;
+    transform: translate(-87%, -204px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_chosenMinute {
+    font-size: 2em !important;
+    transform: translate(-15%, -238px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
+    font-size: 1.5em;
+    width: 30px;
+  }
+  #lfp_timbalbundle_course_durationHour {
+    transform: translate(-102%, -863%);
+  }
+  #lfp_timbalbundle_course_durationMinute {
+    transform: translate(4%, -962%);
+  }
+  #under-clock {
+    position: absolute;
+    top: 524px;
+    width: 248px;
+    t margin: auto;
+    transform: translate(-123px, -114px);
+  }
+  #under-clock select {
+    margin-right: 11px;
+    width: 203px;
+    font-size: 0.8em;
+  }
+  #under-clock input {
+    font-size: 0.8em;
+  }
+  .two-inputs {
+    transform: translateX(-39px);
+  }
+  #lfp_timbalbundle_course_course {
+    transform: translateX(7px);
+  }
+  #lfp_timbalbundle_course_room {
+    transform: translateX(6px);
+  }
+  label {
+    font-size: 1.5em;
+  }
+  .errors-box {
+    width: 300px;
+  }
+  #course-error, #room-error, #building-error, #teacher-error {
+    font-size: 0.8em !important;
+    width: 295px;
+    /* transform: translateX(18px) !important; */
+  }
+  #course-error {
+    transform: translate(-13px, -26px) !important;
+  }
+  #room-error {
+    transform: translate(-13px, 8px) !important;
+  }
+  #building-error {
+    transform: translate(-13px, 42px) !important;
+  }
+  #teacher-error {
+    transform: translate(-13px, 76px) !important;
+  }
+  .save {
+    transform: translateY(-7px) !important;
+    font-weight: normal;
+    font-size: 0.7em;
+    padding: 6px;
+  }
+  footer {
+    display: none;
+  }
+  #notification {
+    top: -12px;
+    margin-left: 47px;
+    font-size: 8px;
+  }
+  #notification p {
+    padding: 6px 10px 4px;
+  }
+}
+
+/*------------------------ UNDER CCONSTRUCTION ------------------------*/
+/* @media screen and (min-width: 200px) and (max-width: 600px) and (orientation: landscape) {
+  .left-bloc-landscape {
+    float: left;
+    transform: scale(0.8) translate(32px, -67px);
+  }
+  .block-right-landscape {
+    float: right;
+    transform: scale(0.7) translate(-539px, 287px);
+  }
+  h1 {
+    color: #327f9e;
+    font-size: 3em;
+    transform: translate(17px, -4px);
+
+    margin-top: 20px;
+  }
+  #days-label {
+    display: none;
+  }
+  #days {
+    transform: scale(0.8) translate(-21px, -79px);
+    position: absolute;
+    width: 82px;
+  }
+  .day {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  #under-clock label {
+    font-size: 1.5em !important;
+    margin-bottom: 15px;
+    margin-top: -24px;
+  }
+  #under-clock {
+    transform: translate(41px, -414px);
+    width: 251px;
+  }
+  #under-clock select {
+    margin-right: 11px;
+    width: 203px;
+    font-size: 0.9em;
+  }
+  #under-clock input {
+    font-size: 0.9em;
+  }
+  .save {
+    transform: translate(-8px, 14px);
+    font-weight: normal;
+    font-size: 0.8em;
+    padding: 6px;
+    width: 108%;
+  }
+  .slide-call {
+    width: 30px;
+    text-align: center;
+  }
+  #clock-module {
+    transform: scale(1) translateY(-10px);
+  }
+  #lfp_timbalbundle_course_day {
+    position: absolute;
+    font-size: 1.6em !important;
+    transform: translate(-90px, -560%);
+    width: 135px;
+  }
+  #lfp_timbalbundle_course_chosenHour {
+    position: absolute;
+    font-size: 2em !important;
+    transform: translate(-127%, -177px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_chosenMinute {
+    position: absolute;
+    font-size: 2em !important;
+    transform: translate(-51%, -177px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
+    position: absolute;
+    font-size: 1.5em;
+    width: 30px;
+  }
+  #lfp_timbalbundle_course_durationHour {
+    transform: translate(-174%, -476%);
+  }
+  #lfp_timbalbundle_course_durationMinute {
+    transform: translate(-64%, -477%);
+  }
+  #lfp_timbalbundle_course_course {
+    transform: translateX(7px);
+  }
+  #lfp_timbalbundle_course_room {
+    transform: translateX(6px);
+  }
+  .errors-box {
+    width: 300px;
+  }
+  #course-error, #room-error, #building-error, #teacher-error {
+    font-size: 0.8em !important;
+    width: 295px;
+  }
+  #course-error {
+    transform: translate(-13px, 8px) !important;
+    width: 267px;
+  }
+  #room-error {
+    transform: translate(-13px, 8px) !important;
+  }
+  #building-error {
+    transform: translate(-13px, 42px) !important;
+  }
+  #teacher-error {
+    transform: translate(-15px, 92px) !important;
+    width: 273px;
+  }
+  footer {
+    display: none;
+  }
+  #notification {
+    top: -12px;
+    margin-left: 47px;
+    font-size: 8px;
+  }
+  #notification p {
+    padding: 6px 10px 4px;
+  }
+
+}
+
+@media s
+creen and (min-width: 601px) and (max-width: 800px) and (orientation: landscape) {
+  .left-bloc-landscape {
+    float: left;
+    transform: scale(0.8) translate(32px, -67px);
+  }
+  .block-right-landscape {
+    float: right;
+    transform: scale(0.7) translate(-539px, 287px);
+  }
+  h1 {
+    color: #327f9e;
+    font-size: 3em;
+    transform: translate(17px, -4px);
+    margin-top: 20px;
+  }
+  #days-label {
+    display: none;
+  }
+  #days {
+    transform: scale(0.8) translate(-21px, -79px);
+    position: absolute;
+    width: 82px;
+  }
+  .day {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  #under-clock label {
+    font-size: 1.5em !important;
+    margin-bottom: 15px;
+    margin-top: -24px;
+  }
+  #under-clock {
+    transform: translate(41px, -414px);
+    width: 251px;
+  }
+  #under-clock select {
+    margin-right: 11px;
+    width: 203px;
+    font-size: 0.9em;
+  }
+  #under-clock input {
+    font-size: 0.9em;
+  }
+  .save {
+    transform: translate(-8px, 14px);
+    font-weight: normal;
+    font-size: 0.8em;
+    padding: 6px;
+    width: 108%;
+  }
+  .slide-call {
+    width: 30px;
+    text-align: center;
+  }
+  #clock-module {
+    transform: scale(1) translateY(-10px);
+  }
+  #lfp_timbalbundle_course_day {
+    position: absolute;
+    font-size: 1.6em !important;
+    transform: translate(-90px, -560%);
+    width: 135px;
+  }
+  #lfp_timbalbundle_course_chosenHour {
+    position: absolute;
+    font-size: 2em !important;
+    transform: translate(-127%, -177px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_chosenMinute {
+    position: absolute;
+    font-size: 2em !important;
+    transform: translate(-51%, -177px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
+    position: absolute;
+    font-size: 1.5em;
+    width: 30px;
+  }
+  #lfp_timbalbundle_course_durationHour {
+    transform: translate(-174%, -476%);
+  }
+  #lfp_timbalbundle_course_durationMinute {
+    transform: translate(-64%, -477%);
+  }
+  #lfp_timbalbundle_course_course {
+    transform: translateX(7px);
+  }
+  #lfp_timbalbundle_course_room {
+    transform: translateX(6px);
+  }
+  .errors-box {
+    width: 300px;
+  }
+  #course-error, #room-error, #building-error, #teacher-error {
+    font-size: 0.8em !important;
+    width: 295px;
+  }
+  #course-error {
+    transform: translate(-13px, 8px) !important;
+    width: 267px;
+  }
+  #room-error {
+    transform: translate(-13px, 8px) !important;
+  }
+  #building-error {
+    transform: translate(-13px, 42px) !important;
+  }
+  #teacher-error {
+    transform: translate(-15px, 92px) !important;
+    width: 273px;
+  }
+  footer {
+    display: none;
+  }
+  #notification {
+    top: -12px;
+    margin-left: 47px;
+    font-size: 8px;
+  }
+  #notification p {
+    padding: 6px 10px 4px;
+  }
+} */
+/* ---------------------------------------------------------------------*/
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .no-landscape {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #menu {
+    display: none;
+  }
+  #content {
+    display: none;
   }
 }

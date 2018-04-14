@@ -1,6 +1,8 @@
 var menu = document.getElementById('menu');
 var slideCall = document.getElementsByClassName('slide-call');
 var direction = "right";
+var menuCall = document.getElementById('menu-call');
+var clockCall = document.getElementById('clock-call');
 
 for (var i = 0; i < slideCall.length; i++) {
   slideCall[i].addEventListener("click", menuTranslateX);
@@ -9,6 +11,7 @@ for (var i = 0; i < slideCall.length; i++) {
 function menuTranslateX() {
   if (direction === 'right') {
     menu.style.transform = "translate(0px, -25px)";
+    // body.style.backgroundColor = "rgb(250, 250, 249)";
     direction = 'left';
   } else if (direction === 'left') {
     menu.style.transform = "translate(-100%, -25px)";
