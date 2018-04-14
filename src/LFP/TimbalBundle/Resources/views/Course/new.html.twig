@@ -70,20 +70,7 @@
 
   {{ form_errors(form) }}
 
-  <div class="errors-box">
-    {% if errors.course | length > 0 %}
-      <p id="course-error"><i class="fas fa-exclamation-triangle"></i>{{ ' COURSE ' ~ errors.course }}</p>
-    {% endif %}
-    {% if errors.room | length > 0 %}
-      <p id="room-error"><i class="fas fa-exclamation-triangle"></i>{{ ' ROOM '~ errors.room }}</p>
-    {% endif %}
-    {% if errors.building | length > 0 %}
-      <p id="building-error"><i class="fas fa-exclamation-triangle"></i>{{ ' BUILDING ' ~ errors.building }}</p>
-    {% endif %}
-    {% if errors.teacher | length > 0 %}
-      <p id="teacher-error"><i class="fas fa-exclamation-triangle"></i>{{ ' TEACHER ' ~ errors.teacher }}</p>
-    {% endif %}
-  </div>
+
 
   <div id="when">
 
@@ -103,6 +90,21 @@
 
   </div>
   <div id="under-clock">
+
+    <div class="errors-box">
+      {% if errors.course | length > 0 %}
+        <p id="course-error">{{ ' ' ~ errors.course }}</p>
+      {% endif %}
+      {% if errors.room | length > 0 %}
+        <p id="room-error">{{ ' ' ~ errors.room }}</p>
+      {% endif %}
+      {% if errors.building | length > 0 %}
+        <p id="building-error">{{ ' ' ~ errors.building }}</p>
+      {% endif %}
+      {% if errors.teacher | length > 0 %}
+        <p id="teacher-error">{{ ' ' ~ errors.teacher }}</p>
+      {% endif %}
+    </div>
 
     <div class="two-inputs">
 

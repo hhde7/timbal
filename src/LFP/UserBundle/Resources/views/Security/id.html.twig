@@ -18,22 +18,24 @@
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
 
-    <h1>Create a user Id</h1>
-    <div class="inputs">
-      {{ form_label(form.username) }}
-      {{ form_errors(form.username) }}
-      {{ form_widget(form.username) }}
-    </div>
-    <div class="inputs">
-      {{ form_row(form.password) }}
-      {{ form_row(form.password.first) }}
-      {{ form_row(form.password.second) }}
-  
-    </div>
-    <div class="inputs">
-      {{ form_label(form.email) }}
-      {{ form_errors(form.email) }}
-      {{ form_widget(form.email) }}
+    <h1 class="create-id-h1">Create a user Id</h1>
+    <div class="mobile-inputs desktop-inputs">
+      <div class="inputs">
+        {{ form_label(form.username) }}
+        {{ form_errors(form.username) }}
+        {{ form_widget(form.username) }}
+      </div>
+      <div class="inputs">
+        {{ form_row(form.password) }}
+        {{ form_row(form.password.first) }}
+        {{ form_row(form.password.second) }}
+
+      </div>
+      <div class="inputs">
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email) }}
+      </div>
     </div>
     <div>
       {{ form_widget(form.save, {'attr': {'class': 'save id-save'}}) }}

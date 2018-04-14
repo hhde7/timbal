@@ -18,6 +18,7 @@ var durationMinute = document.getElementById('lfp_timbalbundle_course_durationMi
 var courseDuration = document.getElementById('course-duration');
 var underClock = document.getElementById('under-clock');
 var addThisCourseBtn = document.getElementsByClassName('save')[0];
+var viewportWidh = window.innerWidth;
 
 var clock = {
   // Clock launch
@@ -31,7 +32,11 @@ var clock = {
     for (var i = 0; i < daysButtons.length; i++) {
       daysButtons[i].addEventListener("click", function(e) {
         if (chosenDay.value === "Day ?") {
-          chosenDay.style.transform = "translate(0, -320%)";
+          if (viewportWidh < 680) {
+            chosenDay.style.transform = "translate(0, -577%)";
+          } else {
+            chosenDay.style.transform = "translate(0, -320%)";
+          }
           clock.displayTimeSeparator();
           clock.bubblesBuilder("blue");
           clock.bubblesBuilder("pink");

@@ -90,7 +90,12 @@ class Course
      * @var string
      *
      * @ORM\Column(name="teacher", type="string", length=30, nullable=true)
-     * @Assert\Length(min=3, max=30)
+     * @Assert\Length(
+     *          min=3,
+     *          max=30,
+     *          minMessage = "Teacher must be at least {{ limit }} characters long",
+     *          maxMessage = "Teacher must be at least {{ limit }} characters long"
+     *)
      */
     private $teacher;
 
@@ -98,7 +103,12 @@ class Course
      * @var string
      *
      * @ORM\Column(name="course", type="string", length=50)
-     * @Assert\Length(min=3, max=50)
+     * @Assert\Length(
+     *          min=3,
+     *          max=50,
+     *          minMessage = "Course must be at least {{ limit }} characters long",
+     *          maxMessage = "Course must be at least {{ limit }} characters long"
+     *)
      */
     private $course;
 
@@ -106,7 +116,12 @@ class Course
      * @var string
      *
      * @ORM\Column(name="building", type="string", length=10, nullable=true)
-     * @Assert\Length(min=1, max=10)
+     * @Assert\Length(
+     *          min=1,
+     *          max=10,
+     *          minMessage = "Building must be at least {{ limit }} characters long",
+     *          maxMessage = "Building must be at least {{ limit }} characters long"
+     *)
      */
     private $building;
 
@@ -115,6 +130,11 @@ class Course
      *
      * @ORM\Column(name="room", type="string", length=30)
      * @Assert\Length(min=1, max=30)
+     *          min=1,
+     *          max=30,
+     *          minMessage = "Room must be at least {{ limit }} characters long",
+     *          maxMessage = "Room must be at least {{ limit }} characters long"
+     *)
      */
     private $room;
 

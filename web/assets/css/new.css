@@ -603,7 +603,7 @@ input {
 .inputs {
   width: 314px;
   padding: 0;
-  margin: 0;
+  margin: 0 0 15px 0;
 }
 
 .two-inputs {
@@ -637,23 +637,32 @@ input {
   border: 1px solid grey !important;
 }
 
-.errors-box {
-  float: left;
-  top: -5px;
-  margin-left: 47px;
-  font-size: 10px;
-  text-align: left;
+#building-error, #room-error, #course-error, #teacher-error {
   position: absolute !important;
+  font-size: 15px !important;
+  color: #b74153;
+  width: auto;
+  text-align: left;
 }
 
-.errors-box p {
-  font-size: 22px;
-  color: #b90303;
-  background-color: #ffce28;
-  border-radius: 9px;
-  padding: 8px 13px 6px;
-  margin-top: 13px;
-  width: 285px;
+#course-error {
+  transform: translate(95px, -25px);
+}
+
+#room-error {
+  transform: translate(95px, 21px);
+}
+
+#building-error {
+  transform: translate(419px, -25px);
+}
+
+#teacher-error {
+  transform: translate(419px, 21px);
+}
+
+#errors-box ul {
+  display: none;
 }
 
 .fa-exclamation-triangle {
@@ -666,4 +675,102 @@ li {
 
 footer p {
   font-size: 1em;
+}
+
+@media screen and (min-width: 401px) and (max-width: 680px) {
+  h1 {
+    color: #327f9e;
+    font-size: 3.5em;
+    transform: translateY(10px);
+  }
+  label, #days-label {
+    font-size: 1.5em;
+  }
+  #days {
+    transform: scale(0.9);
+  }
+  #clock-module {
+    transform: scale(1.1) translateY(12px);
+  }
+  #lfp_timbalbundle_course_day {
+    font-size: 1.6em !important;
+    transform: translate(0, -498%);
+    width: 135px;
+  }
+  #lfp_timbalbundle_course_chosenHour {
+    font-size: 2em !important;
+    transform: translate(-87%, -183px);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_chosenMinute {
+    font-size: 2em !important;
+    transform: translate(-15%, -637%);
+    width: 56px;
+  }
+  #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
+    font-size: 1.5em;
+    width: 30px;
+  }
+  #lfp_timbalbundle_course_durationHour {
+    transform: translate(-102%, -763%);
+  }
+  #lfp_timbalbundle_course_durationMinute {
+    transform: translate(4%, -862%);
+  }
+  #under-clock {
+    position: absolute;
+    top: 538px;
+    bottom: 0;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #under-clock select {
+    margin-right: 11px;
+    width: 203px;
+    font-size: 1em;
+  }
+  #under-clock input {
+    font-size: 1em;
+  }
+  .two-inputs {
+    transform: translateX(-39px);
+  }
+  #lfp_timbalbundle_course_course {
+    transform: translateX(9px);
+  }
+  #lfp_timbalbundle_course_room {
+    transform: translateX(6px);
+  }
+  label {
+    font-size: 1.5em;
+  }
+  #course-error {
+    transform: translate(56px, -32px);
+  }
+  #room-error {
+    transform: translate(56px, 11px);
+  }
+  #building-error {
+    transform: translate(56px, 50px);
+  }
+  #teacher-error {
+    transform: translate(56px, 90px);
+  }
+  .save {
+    transform: translate(0, -21%);
+    font-weight: normal;
+    font-size: 0.8em;
+  }
+  footer {
+    display: none;
+  }
+  #notification {
+    top: -12px;
+    margin-left: 47px;
+    font-size: 8px;
+  }
+  #notification p {
+    padding: 6px 10px 4px;
+  }
 }

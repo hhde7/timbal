@@ -138,7 +138,6 @@ class CourseType extends AbstractType
             'Languages' => 'Languages',
             'Latin' => 'Latin',
             'Law' => 'Law',
-            'Law  ' => 'Law  ',
             'Librarianship & Information Management' => 'Librarianship & Information Management',
             'Life Sciences' => 'Life Sciences',
             'Linguistics' => 'Linguistics',

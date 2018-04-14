@@ -25,17 +25,22 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(name="username", type="string", length=30, unique=true)
-     * @Assert\Length(min=3, max=30)
+     * @Assert\Length(
+     *     min=3,
+     *     max=30,
+     *     minMessage = "Username must be at least {{ limit }} characters long",
+     *     maxMessage = "Username must be at least {{ limit }} characters long"
+     *)
      */
     private $username;
 
     /**
      * @ORM\Column(name="password", type="string", length=60)
      * @Assert\Length(
-     *     min=5,
+     *     min=10,
      *     max=60,
-     *     minMessage = "Username must be at least {{ limit }} characters long",
-     *     maxMessage = "Username must be at least {{ limit }} characters long"
+     *     minMessage = "Passord must be at least {{ limit }} characters long",
+     *     maxMessage = "Password must be at least {{ limit }} characters long"
      *)
      */
     private $password;

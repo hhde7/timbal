@@ -49,13 +49,14 @@ input {
 
 .inputs {
   width: 455px;
-   -webkit-transform: translate(-62px, 26px);
-  transform: translate(-62px, 26px);
+  -webkit-transform: translate(-62px, 26px);
+  transform: translate(-56px, 26px);
+  transition: all ease 0.3s;
+  margin-top: 20px;
 }
 
 #create-account {
   position: relative;
-  /* right: 36px !important; */
   top: -8px;
   left: 130px;
 }
@@ -96,22 +97,122 @@ input {
   margin-top: 81px;
 }
 
+.desktop-inputs {
+  transform: translateX(-3px);
+}
+
 .alert-danger, ul {
-  color: white;
-  background-color: #b74153;
+  color: #b74153;
   border-radius: 9px;
   padding: 8px 13px 6px;
   margin-top: 13px;
-  width: 300px;
+  width: 240px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-ul {
+.alert-danger {
   position: absolute;
-  margin-top: 23px;
+  transform: translate(-3px, 91px);
+}
+
+ul {
+  transform: translate(108px, -66px);
+  position: absolute;
   list-style: none;
-  top: -415px;
-  left: 92px;
+  margin-bottom: 10px;
+  width: 330px;
+}
+
+@media screen and (min-width: 421px) and (max-width: 812px) {
+  h1 {
+    transform: translateY(33px);
+  }
+  .create-id-h1 {
+    transform: translateY(0px);
+  }
+  .save {
+    transform: translateY(-41px);
+  }
+  .id-save {
+    margin-top: 0;
+    transform: translateY(-32px);
+  }
+  .mobile-inputs {
+    position: relative;
+    top: -49px;
+  }
+  .inputs {
+    margin-bottom: 15px;
+  }
+  ul {
+    transform: translate(138px, -66px);
+    position: absolute;
+    list-style: none;
+    margin-bottom: 10px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0);
+    color: #b74153;
+  }
+  li {}
+}
+
+@media screen and (min-width: 200px) and (max-width: 530px) {
+  .alert-danger {
+    transform: translate(-72px, 127px);
+  }
+  .create-id-h1 {
+    font-size: 3em;
+    transform: translateY(0px);
+  }
+  .inputs {
+    width: 315px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transform: translate(0, 20px);
+    transform: translate(0, 20px);
+  }
+  input {
+    margin-top: 13px;
+  }
+  .mobile-inputs {
+    position: relative;
+    top: -42px;
+  }
+  #create-account {
+    position: relative;
+    top: -8px;
+    left: 74px;
+  }
+  label {
+    position: relative;
+    color: #327f9e;
+    font-size: 2em;
+    left: 6px;
+    width: 50px !important;
+    transform: translateX(500px) !important;
+  }
+  #lfp_timbalbundle_course_password_first, #lfp_timbalbundle_course_email {
+    transform: translateX(0);
+  }
+  #lfp_timbalbundle_course_password_first {
+    margin-bottom: 10px;
+  }
+  .id-save {
+    margin-top: 0;
+  }
+  ul {
+    transform: translate(8px, -25px);
+    position: absolute;
+    list-style: none;
+    margin-bottom: 10px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0);
+    color: #b74153;
+  }
 }
