@@ -39,7 +39,7 @@ class User implements UserInterface
      * @Assert\Length(
      *     min=10,
      *     max=60,
-     *     minMessage = "Passord must be at least {{ limit }} characters long",
+     *     minMessage = "Password must be at least {{ limit }} characters long",
      *     maxMessage = "Password must be at least {{ limit }} characters long"
      *)
      */

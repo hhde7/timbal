@@ -33,6 +33,7 @@ class SecurityController extends Controller
         // (mauvais mot de passe par exemple)
         $authenticationUtils = $this->get('security.authentication_utils');
 
+
         return $this->render('LFPUserBundle:Security:login.html.twig', array(
       'last_username' => $authenticationUtils->getLastUsername(),
       'error'         => $authenticationUtils->getLastAuthenticationError(),
