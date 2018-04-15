@@ -96,8 +96,6 @@ class CourseController extends Controller
             $dayRanks = [];
         }
 
-        // NOTE: simplifier le render
-
         $content = $this->get('templating')->render('LFPTimbalBundle:Course:menu.html.twig', array(
             'userCourses' => $userCourses,
             'dayRanks' => $dayRanks,
@@ -161,8 +159,6 @@ class CourseController extends Controller
             $dayRanks = [];
         }
 
-        // -----------------------------------------------------------------------
-
         $snappyStyles = true;
         $snappy = $this->get("knp_snappy.pdf");
         $snappy->setOption("encoding", "UTF-8");
@@ -170,8 +166,6 @@ class CourseController extends Controller
         // ------check numbers of column to resize them properly in pdf view----//
 
         $numberOfColumns = $this->getDoctrine()->getManager()->getRepository('LFPTimbalBundle:Course')->countDays($em, $currentUser);
-
-        // ---------------------------------------------------------------------//
 
         $html = $this->renderView("LFPTimbalBundle:Course:menu.html.twig", array(
             "dayRanks" => $dayRanks,
