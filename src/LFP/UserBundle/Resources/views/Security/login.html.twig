@@ -7,9 +7,9 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('assets/css/id.css') }}">
   {% endblock %}
-  {# S'il y a une erreur, on l'affiche dans un joli cadre #}
+
   <div id="centered-content">
-    {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
+
     <form action="{{ path('login_check') }}" method="post">
       {% if error %}
       <div class="alert alert-danger">{{ error.message }}</div>

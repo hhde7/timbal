@@ -7,7 +7,7 @@
 
 {% block stylesheet %}
   {{ parent() }}
-  <!-- NOTE yarn gestion de js et css -->
+
   <link rel="stylesheet" href="{{ asset('assets/css/id.css') }}">
 {% endblock %}
 
@@ -15,7 +15,7 @@
   <div id="centered-content">
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-    {# Les erreurs générales du formulaire. #}
+
     {{ form_errors(form) }}
 
     <h1 class="create-id-h1">Create a user Id</h1>
@@ -42,11 +42,11 @@
     </div>
     {{ form_rest(form) }}
 
-    {# Fermeture de la balise <form> du formulaire HTML #}
+
     {{ form_end(form) }}
 
   </div>
-  <!-- NOTE si pas d'ajout de script : bock inutile -->
+
   {% block javascripts %}
     {{ parent() }}
   {% endblock %}
