@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/errors.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <title>An Error Occurred:
+      {{ status_text }}</title>
+  </head>
+  <body>
+    <div class="content">
+
+      <div class="error-circle"></div>
+      <em>{{ status_text }}</em>
+      <p>{{ status_code }}</p>
+      <h1>Oops!</h1>
+    </div>
+
+    <em class="message">Something is broken. We will fix it as soon as possible. Sorry for any inconvenience caused.</em>
+  </div>
+</div>
+</body>
+</html>

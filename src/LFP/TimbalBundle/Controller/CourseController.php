@@ -1,6 +1,6 @@
 <?php
 
-// src/LFP/TimbalBunble/Controller/CourseController.php
+// src/LFP/TimbalBundle/Controller/CourseController.php
 
 namespace LFP\TimbalBundle\Controller;
 

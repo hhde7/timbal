@@ -75,8 +75,7 @@ var clock = {
       });
     }
   },
-  // Sets delay on the display of time separator ':', after day slide-up
-  // NOTE: inversion naming displayTimeSeparator et delayDisplayTS
+  // Displays time separator
   displayTimeSeparator: function() {
     if (timeSeparator.textContent === "") {
       var setDelay = setTimeout(this.delayDisplayTS, 300);
@@ -84,7 +83,7 @@ var clock = {
       // Skip delayDisplayTS, timeSeparator.textContent already sets
     }
   },
-  // Displays time separator
+  // Sets delay on the display of time separator ':', after day slide-up
   delayDisplayTS() {
     chosenTime.style.display = "block";
     timeSeparator.textContent = ':';
