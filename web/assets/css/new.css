@@ -106,7 +106,8 @@ input {
   left: 50%;
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
-  transform: translate(-65%, -127px);
+  -webkit-transform: translate(-65%, -127px);
+          transform: translate(-65%, -127px);
   font-size: 2em;
   width: 173px;
 }
@@ -494,6 +495,7 @@ input {
   color: grey;
   text-align: center;
   line-height: 32px;
+  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -647,19 +649,23 @@ input {
 }
 
 #course-error {
-  transform: translate(95px, -25px);
+  -webkit-transform: translate(95px, -25px);
+          transform: translate(95px, -25px);
 }
 
 #room-error {
-  transform: translate(95px, 21px);
+  -webkit-transform: translate(95px, 21px);
+          transform: translate(95px, 21px);
 }
 
 #building-error {
-  transform: translate(419px, -25px);
+  -webkit-transform: translate(419px, -25px);
+          transform: translate(419px, -25px);
 }
 
 #teacher-error {
-  transform: translate(419px, 21px);
+  -webkit-transform: translate(419px, 21px);
+          transform: translate(419px, 21px);
 }
 
 #errors-box ul {
@@ -690,30 +696,36 @@ footer p {
   h1 {
     color: #327f9e;
     font-size: 3.5em;
-    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
   label, #days-label {
     font-size: 1.5em;
   }
   #days {
-    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   #clock-module {
-    transform: scale(1.1) translateY(12px);
+    -webkit-transform: scale(1.1) translateY(12px);
+            transform: scale(1.1) translateY(12px);
   }
   #lfp_timbalbundle_course_day {
     font-size: 1.6em !important;
-    transform: translate(0, -498%);
+    -webkit-transform: translate(0, -498%);
+            transform: translate(0, -498%);
     width: 135px;
   }
   #lfp_timbalbundle_course_chosenHour {
     font-size: 2em !important;
-    transform: translate(-87%, -183px);
+    -webkit-transform: translate(-87%, -183px);
+            transform: translate(-87%, -183px);
     width: 56px;
   }
   #lfp_timbalbundle_course_chosenMinute {
     font-size: 2em !important;
-    transform: translate(-15%, -637%);
+    -webkit-transform: translate(-15%, -637%);
+            transform: translate(-15%, -637%);
     width: 56px;
   }
   #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
@@ -721,10 +733,12 @@ footer p {
     width: 30px;
   }
   #lfp_timbalbundle_course_durationHour {
-    transform: translate(-102%, -763%);
+    -webkit-transform: translate(-102%, -763%);
+            transform: translate(-102%, -763%);
   }
   #lfp_timbalbundle_course_durationMinute {
-    transform: translate(4%, -862%);
+    -webkit-transform: translate(4%, -862%);
+            transform: translate(4%, -862%);
   }
   #under-clock {
     position: absolute;
@@ -732,7 +746,8 @@ footer p {
     /* bottom: 0; */
     width: auto;
     /* left: 50%; */
-    transform: translateX(-123px);
+    -webkit-transform: translateX(-123px);
+            transform: translateX(-123px);
   }
   #under-clock select {
     margin-right: 11px;
@@ -743,31 +758,39 @@ footer p {
     font-size: 1em;
   }
   .two-inputs {
-    transform: translateX(-39px);
+    -webkit-transform: translateX(-39px);
+            transform: translateX(-39px);
   }
   #lfp_timbalbundle_course_course {
-    transform: translateX(7px);
+    -webkit-transform: translateX(7px);
+            transform: translateX(7px);
   }
   #lfp_timbalbundle_course_room {
-    transform: translateX(6px);
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
   }
   label {
     font-size: 1.5em;
   }
   #course-error {
-    transform: translate(56px, -32px);
+    -webkit-transform: translate(56px, -32px);
+            transform: translate(56px, -32px);
   }
   #room-error {
-    transform: translate(56px, 11px);
+    -webkit-transform: translate(56px, 11px);
+            transform: translate(56px, 11px);
   }
   #building-error {
-    transform: translate(56px, 50px);
+    -webkit-transform: translate(56px, 50px);
+            transform: translate(56px, 50px);
   }
   #teacher-error {
-    transform: translate(56px, 90px);
+    -webkit-transform: translate(56px, 90px);
+            transform: translate(56px, 90px);
   }
   .save {
-    transform: translate(-35px, 10%);
+    -webkit-transform: translate(-35px, 10%);
+            transform: translate(-35px, 10%);
     font-weight: normal;
     font-size: 0.8em;
   }
@@ -788,7 +811,8 @@ footer p {
   h1 {
     color: #327f9e;
     font-size: 3em;
-    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
   label {
     font-size: 1.2em !important;
@@ -799,7 +823,8 @@ footer p {
     display: none;
   }
   #days {
-    transform: scale(0.9) translateY(-10px);
+    -webkit-transform: scale(0.9) translateY(-10px);
+            transform: scale(0.9) translateY(-10px);
   }
   .day {
     width: 38px;
@@ -810,21 +835,25 @@ footer p {
     margin-right: 1px;
   }
   #clock-module {
-    transform: scale(1) translateY(-10px);
+    -webkit-transform: scale(1) translateY(-10px);
+            transform: scale(1) translateY(-10px);
   }
   #lfp_timbalbundle_course_day {
     font-size: 1.4em !important;
-    transform: translate(0, -624%);
+    -webkit-transform: translate(0, -624%);
+            transform: translate(0, -624%);
     width: 135px;
   }
   #lfp_timbalbundle_course_chosenHour {
     font-size: 2em !important;
-    transform: translate(-87%, -204px);
+    -webkit-transform: translate(-87%, -204px);
+            transform: translate(-87%, -204px);
     width: 56px;
   }
   #lfp_timbalbundle_course_chosenMinute {
     font-size: 2em !important;
-    transform: translate(-15%, -238px);
+    -webkit-transform: translate(-15%, -238px);
+            transform: translate(-15%, -238px);
     width: 56px;
   }
   #lfp_timbalbundle_course_durationHour, #lfp_timbalbundle_course_durationMinute {
@@ -832,17 +861,20 @@ footer p {
     width: 30px;
   }
   #lfp_timbalbundle_course_durationHour {
-    transform: translate(-102%, -863%);
+    -webkit-transform: translate(-102%, -863%);
+            transform: translate(-102%, -863%);
   }
   #lfp_timbalbundle_course_durationMinute {
-    transform: translate(4%, -962%);
+    -webkit-transform: translate(4%, -962%);
+            transform: translate(4%, -962%);
   }
   #under-clock {
     position: absolute;
     top: 524px;
     width: 248px;
     t margin: auto;
-    transform: translate(-123px, -114px);
+    -webkit-transform: translate(-123px, -114px);
+            transform: translate(-123px, -114px);
   }
   #under-clock select {
     margin-right: 11px;
@@ -853,13 +885,16 @@ footer p {
     font-size: 0.8em;
   }
   .two-inputs {
-    transform: translateX(-39px);
+    -webkit-transform: translateX(-39px);
+            transform: translateX(-39px);
   }
   #lfp_timbalbundle_course_course {
-    transform: translateX(7px);
+    -webkit-transform: translateX(7px);
+            transform: translateX(7px);
   }
   #lfp_timbalbundle_course_room {
-    transform: translateX(6px);
+    -webkit-transform: translateX(6px);
+            transform: translateX(6px);
   }
   label {
     font-size: 1.5em;
@@ -873,19 +908,24 @@ footer p {
     /* transform: translateX(18px) !important; */
   }
   #course-error {
-    transform: translate(-13px, -26px) !important;
+    -webkit-transform: translate(-13px, -26px) !important;
+            transform: translate(-13px, -26px) !important;
   }
   #room-error {
-    transform: translate(-13px, 8px) !important;
+    -webkit-transform: translate(-13px, 8px) !important;
+            transform: translate(-13px, 8px) !important;
   }
   #building-error {
-    transform: translate(-13px, 42px) !important;
+    -webkit-transform: translate(-13px, 42px) !important;
+            transform: translate(-13px, 42px) !important;
   }
   #teacher-error {
-    transform: translate(-13px, 76px) !important;
+    -webkit-transform: translate(-13px, 76px) !important;
+            transform: translate(-13px, 76px) !important;
   }
   .save {
-    transform: translateY(-7px) !important;
+    -webkit-transform: translateY(-7px) !important;
+            transform: translateY(-7px) !important;
     font-weight: normal;
     font-size: 0.7em;
     padding: 6px;
@@ -1037,8 +1077,7 @@ footer p {
 
 }
 
-@media s
-creen and (min-width: 601px) and (max-width: 800px) and (orientation: landscape) {
+@media screen and (min-width: 601px) and (max-width: 800px) and (orientation: landscape) {
   .left-bloc-landscape {
     float: left;
     transform: scale(0.8) translate(32px, -67px);
@@ -1176,7 +1215,8 @@ creen and (min-width: 601px) and (max-width: 800px) and (orientation: landscape)
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   #menu {
     display: none;

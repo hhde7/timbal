@@ -7,7 +7,8 @@ em {
   position: absolute;
   top: 32%;
   left: 50%;
-  transform: translate(-50%, -270%);
+  -webkit-transform: translate(-50%, -270%);
+          transform: translate(-50%, -270%);
 }
 
 p {
@@ -18,14 +19,16 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  -webkit-transform: translate(-50%, -70%);
+          transform: translate(-50%, -70%);
 }
 
 h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  -webkit-transform: translate(-50%, -10%);
+          transform: translate(-50%, -10%);
   color: white;
 }
 
@@ -35,7 +38,8 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 510%);
+  -webkit-transform: translate(-50%, 510%);
+          transform: translate(-50%, 510%);
 }
 
 .content {
@@ -43,7 +47,8 @@ h1 {
   width: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .error-circle {
@@ -55,7 +60,8 @@ h1 {
   width: 150px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .inner-circle {
@@ -66,5 +72,6 @@ h1 {
   height: 70px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }

@@ -151,7 +151,8 @@ nav ul li {
   font-family: 'Yanone Kaffeesatz', sans-serif !important;
   background-color: #f3f3f3 !important;
   color: #3e3e3e !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.47) !important;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.47) !important;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.47) !important;
 }
 
 .jconfirm-buttons {
@@ -172,9 +173,13 @@ nav ul li {
 
 @media screen and (min-width: 200px) and (max-width: 767px) {
   #timetable-options {}
+  #menu {
+    min-height: 150%;
+  }
   nav ul li {
     padding: 0 2px;
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
   nav ul {
     width: 193px !important;
