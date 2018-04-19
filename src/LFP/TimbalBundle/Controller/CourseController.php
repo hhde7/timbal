@@ -147,7 +147,7 @@ class CourseController extends Controller
         $currentUser = $this->getUser();
         if (isset($currentUser)) {
 
-            // Gets current user courses according his id
+            // Gets current user courses according to his id
 
             $userCourses = $repository->findBy(array(
                 'user' => $currentUser->getId()
